@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <bundle url="plugins/org.jboss.tools.locus.apache.poi_0.0.0.jar" id="org.jboss.tools.locus.apache.poi" version="0.0.0">
+      <category name="AllBundles"/>
+   </bundle>
+   <bundle url="plugins/org.jboss.tools.locus.jcip.annotations_0.0.0.jar" id="org.jboss.tools.locus.jcip.annotations" version="0.0.0">
+      <category name="AllBundles"/>
+   </bundle>
+   <bundle url="plugins/org.jboss.tools.locus.sf.saxon_0.0.0.jar" id="org.jboss.tools.locus.sf.saxon" version="0.0.0">
+      <category name="AllBundles"/>
+   </bundle>
+   <bundle url="plugins/org.jboss.tools.locus.mockito_0.0.0.jar" id="org.jboss.tools.locus.mockito" version="0.0.0">
+      <category name="AllBundles"/>
+   </bundle>
+   <category-def name="AllBundles" label="JBoss Locus bundles (plugins) - not features!"/>
+</site>
