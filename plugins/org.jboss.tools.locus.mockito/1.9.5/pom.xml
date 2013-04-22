@@ -1,0 +1,55 @@
+<project
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion> 
+	<parent>
+	  <groupId>org.jboss.tools.locus.plugins</groupId>
+	  <artifactId>mockito</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.jboss.tools.locus.mockito</artifactId>
+	<version>1.9.5-SNAPSHOT</version>
+	<packaging>eclipse-plugin</packaging>
+
+  <!-- TEIIDDES-1681: Patched as per this discussion, so set a different alias than just Final to reflect the fact we've forked: https://groups.google.com/forum/?hl=en&fromgroups=#!topic/mockito/wu1GwsC2E28 -->
+  <properties>
+    <BUILD_ALIAS>Final_patched_TEIIDDES-1681</BUILD_ALIAS>
+  </properties>
+
+ <build>
+    <plugins>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>get-binaries</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <stripVersion>true</stripVersion>
+              <outputDirectory>${basedir}</outputDirectory>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.mockito</groupId>
+                  <artifactId>mockito-all</artifactId>
+                  <version>1.9.5</version>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.mockito</groupId>
+                  <artifactId>mockito-all</artifactId>
+                  <version>1.9.5</version>
+                  <classifier>sources</classifier>
+                  <destFileName>mockito-all-src.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
