@@ -1,0 +1,5 @@
+<target name="post.gather.sources" >
+	<mkdir dir="${target.folder}/jcipsrc"/>
+	<unzip src="${target.folder}/jcip-annotations-src.zip" dest="${target.folder}/jcipsrc" overwrite="false"/>
+	<delete file="${destination.temp.folder}/jcip-annotations-src.zip" />		
+</target>
