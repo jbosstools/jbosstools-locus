@@ -1,24 +1,243 @@
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.jboss.tools</groupId>
-		<artifactId>parent</artifactId>
-		<version>4.1.0.Beta1-SNAPSHOT</version>
-	</parent>
-	<groupId>org.jboss.tools</groupId>
-	<artifactId>locus</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-	<modules>
-		<module>plugins</module>
-		<module>site</module>
-	</modules>
-
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.jboss.tools</groupId>
+  <artifactId>locus</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <properties>
+    <tychoVersion>0.17.0</tychoVersion>
+    <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
     <BUILD_ALIAS>Final</BUILD_ALIAS>
+    <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
+    <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
+         you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
+    <update.site.description>&amp;shy;</update.site.description>
   </properties>
+
+  <modules>
+    <module>plugins</module>
+    <module>site</module>
+  </modules>
+
+  <build>
+      <plugins>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-packaging-plugin</artifactId>
+          <version>${tychoVersion}</version>
+          <configuration>
+            <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
+            <archiveSite>true</archiveSite>
+            <environments>
+              <environment>
+                <os>macosx</os>
+                <ws>cocoa</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>macosx</os>
+                <ws>cocoa</ws>
+                <arch>x86_64</arch>
+              </environment>
+              <environment>
+                <os>win32</os>
+                <ws>win32</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>win32</os>
+                <ws>win32</ws>
+                <arch>x86_64</arch>
+              </environment>
+              <environment>
+                <os>linux</os>
+                <ws>gtk</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>linux</os>
+                <ws>gtk</ws>
+                <arch>x86_64</arch>
+              </environment>
+            </environments>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-maven-plugin</artifactId>
+          <version>${tychoVersion}</version>
+          <extensions>true</extensions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>target-platform-configuration</artifactId>
+          <version>${tychoVersion}</version>
+          <configuration>
+            <resolver>p2</resolver>
+            <ignoreTychoRepositories>true</ignoreTychoRepositories>
+            <environments>
+              <environment>
+                <os>macosx</os>
+                <ws>cocoa</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>macosx</os>
+                <ws>cocoa</ws>
+                <arch>x86_64</arch>
+              </environment>
+              <environment>
+                <os>win32</os>
+                <ws>win32</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>win32</os>
+                <ws>win32</ws>
+                <arch>x86_64</arch>
+              </environment>
+              <environment>
+                <os>linux</os>
+                <ws>gtk</ws>
+                <arch>x86</arch>
+              </environment>
+              <environment>
+                <os>linux</os>
+                <ws>gtk</ws>
+                <arch>x86_64</arch>
+              </environment>
+            </environments>
+          </configuration>
+        </plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- source for bundles -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<encoding>ISO-8859-1</encoding>
+				</configuration>
+			</plugin>
+	<plugin>
+          <groupId>org.jboss.tools.tycho-plugins</groupId>
+          <artifactId>repository-utils</artifactId>
+          <version>0.16.0-SNAPSHOT</version>
+          <executions>
+            <execution>
+              <id>generate-facade</id>
+              <phase>package</phase>
+              <goals>
+                <goal>generate-repository-facade</goal>
+              </goals>
+              <configuration>
+                
+                <symbols>
+                  <update.site.name>${update.site.name}</update.site.name>
+                  <update.site.description>${update.site.description}</update.site.description>
+                  <update.site.version>${project.version} (${buildQualifier})</update.site.version>
+                  <target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
+                </symbols>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>com.googlecode.maven-download-plugin</groupId>
+					<artifactId>maven-download-plugin</artifactId>
+					<version>0.2-SNAPSHOT</version>
+					<configuration>
+						<skip>${skipRequirements}</skip>
+						<outputDirectory>${requirementsDirectory}</outputDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<skip>${skipRequirements}</skip>
+						<outputDirectory>${requirementsDirectory}</outputDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>pack200</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+            <version>${tychoVersion}</version>
+            <configuration>
+              <includePackedArtifacts>true</includePackedArtifacts>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho.extras</groupId>
+          <artifactId>tycho-pack200b-plugin</artifactId>
+          <version>${tychoExtrasVersion}</version>
+          <executions>
+            <execution>
+              <id>pack200-pack</id>
+              <goals>
+                <goal>pack</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-p2-plugin</artifactId>
+          <version>${tychoVersion}</version>
+          <executions>
+            <execution>  
+              <id>p2-metadata</id>
+              <goals>
+                <goal>p2-metadata</goal>
+              </goals>
+              <phase>package</phase>
+            </execution>
+          </executions>
+          <configuration>
+            <defaultP2Metadata>false</defaultP2Metadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+  </profiles>
 
   <repositories>
     <repository>
@@ -68,4 +287,20 @@
     </pluginRepository>
   </pluginRepositories>
 
+  <!-- To deploy parent to Nexus -->
+  <!--  Don't change "id" since it should match credentials entry in $M2_REPO/settings.xml -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>jboss-snapshots-repository</id>
+      <name>JBoss Snapshots Repository</name>
+      <url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+      <uniqueVersion>false</uniqueVersion>
+    </snapshotRepository>
+    <repository>
+      <id>jboss-staging-repository</id>
+      <name>JBoss Staging Service</name>
+      <uniqueVersion>false</uniqueVersion>
+      <url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 </project>
