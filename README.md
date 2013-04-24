@@ -1,14 +1,14 @@
-# The JBoss Locus project
+# The JBoss Tools Locus project
 
 ## Summary
 
-_JBoss Locus_ is an adjunct to [Eclipse Orbit](http://www.eclipse.org/orbit/). This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed. 
+_JBoss Tools Locus_ is an adjunct to [Eclipse Orbit](http://www.eclipse.org/orbit/). This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed. 
 
 This project's contents should never duplicate what's already in Eclipse Orbit; instead, it should provide newer versions of plugins already in Orbit, or plugins which cannot be included in Orbit for some reason (technical, licensing or otherwise).
 
 ## Install
 
-_JBoss Locus_ is part of [JBoss Tools](http://jboss.org/tools) from
+_JBoss Tools Locus_ is part of [JBoss Tools](http://jboss.org/tools) from
 which it can be [downloaded and installed](http://jboss.org/tools/download)
 on its own or together with the full JBoss Tools distribution.
 
@@ -30,9 +30,9 @@ At any time, you can pull changes from the upstream and merge them onto your mas
 The general idea is to keep your 'master' branch in-sync with the
 'upstream/master'.
 
-## Building JBoss Locus
+## Building JBoss Tools Locus
 
-To build _JBoss Locus_ requires specific versions of Java and
+To build _JBoss Tools Locus_ requires specific versions of Java and
 Maven. Also, there is some Maven setup. The [How to Build JBoss Tools with Maven 3](https://community.jboss.org/wiki/HowToBuildJBossToolsWithMaven3)
 document will guide you through that setup.
 
@@ -48,7 +48,7 @@ But *do not* push changes without having the new and existing unit tests pass!
  
 ## Contribute fixes and features
 
-_JBoss Locus_ is open source, and we welcome anybody that wants to
+_JBoss Tools Locus_ is open source, and we welcome anybody that wants to
 participate and contribute!
 
 If you want to fix a bug or make any changes, please log an issue in
@@ -76,7 +76,7 @@ tests enabled to make sure your changes are still good.
 
 You can then push your topic branch and its changes into your public fork repository:
 
-	$ git push origin jbide-1234         # pushes your topic branch into your public fork of JBoss Locus
+	$ git push origin jbide-1234         # pushes your topic branch into your public fork of JBoss Tools Locus
 
 And then [generate a pull-request](http://help.github.com/pull-requests/) where we can
 review the proposed changes, comment on them, discuss them with you,
