@@ -2,7 +2,11 @@
 
 ## Summary
 
+<<<<<<< HEAD
 _JBoss Locus_ is an adjunct to [Eclipse Orbit](http://www.eclipse.org/orbit/). This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed. 
+=======
+This project's contents should never duplicate what's already in Eclipse Orbit; instead, it should provide newer versions of plugins already in Orbit, or plugins which cannot be included in Orbit for some reason (technical or otherwise).
+>>>>>>> Update README.md
 
 This project's contents should never duplicate what's already in Eclipse Orbit; instead, it should provide newer versions of plugins already in Orbit, or plugins which cannot be included in Orbit for some reason (technical, licensing or otherwise).
 
