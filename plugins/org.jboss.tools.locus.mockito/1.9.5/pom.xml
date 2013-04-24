@@ -36,6 +36,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                   <groupId>org.mockito</groupId>
                   <artifactId>mockito-all</artifactId>
                   <version>1.9.5</version>
+                  <destFileName>mockito-all.jar</destFileName>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.mockito</groupId>
@@ -45,6 +46,25 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                   <destFileName>mockito-all-src.jar</destFileName>
                 </artifactItem>
               </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>maven-download-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>get-sources</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>wget</goal>
+            </goals>
+            <configuration>
+              <url>http://mockito.googlecode.com/files/mockito-1.9.5.zip</url>
+              <md5>d68fdf89dffd77ac401920e94d1f4634</md5>
+              <unpack>true</unpack>
+              <outputDirectory>${basedir}</outputDirectory>
             </configuration>
           </execution>
         </executions>
