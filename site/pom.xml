@@ -34,6 +34,7 @@
                 <site>http://download.jboss.org/jbosstools/updates/kepler/</site>
                 <site>http://download.jboss.org/jbosstools/updates/development/kepler/</site>
               </associateSites>
+              <siteTemplateFolder>siteTemplateFolder</siteTemplateFolder>
               <symbols>
                 <update.site.name>${update.site.name}</update.site.name>
                 <update.site.description>${update.site.description}</update.site.description>
