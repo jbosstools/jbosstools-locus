@@ -113,37 +113,37 @@
             </environments>
           </configuration>
         </plugin>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-compiler-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-			<!-- source for bundles -->
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<executions>
-					<execution>
-						<id>plugin-source</id>
-						<goals>
-							<goal>plugin-source</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.4.1</version>
-				<configuration>
-					<encoding>ISO-8859-1</encoding>
-				</configuration>
-			</plugin>
-	<plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tychoVersion}</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <!-- source for bundles -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-source-plugin</artifactId>
+        <version>${tychoVersion}</version>
+        <executions>
+          <execution>
+            <id>plugin-source</id>
+            <goals>
+              <goal>plugin-source</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <encoding>ISO-8859-1</encoding>
+        </configuration>
+      </plugin>
+  <plugin>
           <groupId>org.jboss.tools.tycho-plugins</groupId>
           <artifactId>repository-utils</artifactId>
           <version>0.16.0-SNAPSHOT</version>
@@ -167,31 +167,53 @@
           </executions>
         </plugin>
       </plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>com.googlecode.maven-download-plugin</groupId>
-					<artifactId>maven-download-plugin</artifactId>
-					<version>0.2-SNAPSHOT</version>
-					<configuration>
-						<skip>${skipRequirements}</skip>
-						<outputDirectory>${requirementsDirectory}</outputDirectory>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.4</version>
-					<configuration>
-						<skip>${skipRequirements}</skip>
-						<outputDirectory>${requirementsDirectory}</outputDirectory>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.googlecode.maven-download-plugin</groupId>
+          <artifactId>maven-download-plugin</artifactId>
+          <version>0.2-SNAPSHOT</version>
+          <configuration>
+            <skip>${skipRequirements}</skip>
+            <outputDirectory>${requirementsDirectory}</outputDirectory>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <skip>${skipRequirements}</skip>
+            <outputDirectory>${requirementsDirectory}</outputDirectory>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <profiles>
+
+    <profile>
+      <id>hudson</id>
+      <activation>
+        <property>
+          <name>BUILD_NUMBER</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-packaging-plugin</artifactId>
+            <version>${tychoVersion}</version>
+            <configuration>
+              <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
+              <archiveSite>true</archiveSite>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>pack200</id>
       <build>
