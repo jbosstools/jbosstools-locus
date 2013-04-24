@@ -6,11 +6,26 @@
    <bundle url="plugins/org.jboss.tools.locus.jcip.annotations_0.0.0.jar" id="org.jboss.tools.locus.jcip.annotations" version="0.0.0">
       <category name="AllBundles"/>
    </bundle>
-   <bundle url="plugins/org.jboss.tools.locus.sf.saxon_0.0.0.jar" id="org.jboss.tools.locus.sf.saxon" version="0.0.0">
-      <category name="AllBundles"/>
-   </bundle>
    <bundle url="plugins/org.jboss.tools.locus.mockito_0.0.0.jar" id="org.jboss.tools.locus.mockito" version="0.0.0">
       <category name="AllBundles"/>
    </bundle>
-   <category-def name="AllBundles" label="JBoss Locus bundles (plugins) - not features!"/>
+   <bundle url="plugins/org.jboss.tools.locus.sf.saxon_0.0.0.jar" id="org.jboss.tools.locus.sf.saxon" version="0.0.0">
+      <category name="AllBundles"/>
+   </bundle>
+   <category-def name="AllBundles" label="All JBoss Tools Locus Bundles"/>
+
+   <bundle url="plugins/org.jboss.tools.locus.apache.poi.source_0.0.0.jar" id="org.jboss.tools.locus.apache.poi.source" version="0.0.0">
+      <category name="AllSources"/>
+   </bundle>
+   <bundle url="plugins/org.jboss.tools.locus.jcip.annotations.source_0.0.0.jar" id="org.jboss.tools.locus.jcip.annotations.source" version="0.0.0">
+      <category name="AllSources"/>
+   </bundle>
+   <bundle url="plugins/org.jboss.tools.locus.mockito.source_0.0.0.jar" id="org.jboss.tools.locus.mockito.source" version="0.0.0">
+      <category name="AllSources"/>
+   </bundle>
+   <bundle url="plugins/org.jboss.tools.locus.sf.saxon.source_0.0.0.jar" id="org.jboss.tools.locus.sf.saxon.source" version="0.0.0">
+      <category name="AllSources"/>
+   </bundle>
+   <category-def name="AllSources" label="All JBoss Tools Locus Source Bundles"/>
+
 </site>
