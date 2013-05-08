@@ -13,36 +13,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <build>
     <plugins>
      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.4</version>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>maven-download-plugin</artifactId>
         <executions>
           <execution>
-            <id>get-binaries-and-unpack</id>
+            <id>get-sources</id>
             <phase>validate</phase>
             <goals>
-              <goal>unpack</goal>
+              <goal>wget</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/src</outputDirectory>
-              <overWrite>true</overWrite>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>poi</groupId>
-                  <artifactId>poi</artifactId>
-                  <version>2.5.1</version>
-                </artifactItem>
-                <artifactItem>
-                  <groupId>poi</groupId>
-                  <artifactId>poi-contrib-2.5.1-final</artifactId>
-                  <version>20040804</version>
-                </artifactItem>
-                <artifactItem>
-                  <groupId>poi</groupId>
-                  <artifactId>poi-scratchpad-2.5.1-final</artifactId>
-                  <version>20040804</version>
-                </artifactItem>
-              </artifactItems>
+              <url>http://archive.apache.org/dist/jakarta/poi/release/src/poi-src-2.5.1-final-20040804.zip</url>
+              <md5>874f748c2feffcd35ecc03859007eaff</md5>
+              <unpack>true</unpack>
+              <outputDirectory>${basedir}/sources</outputDirectory>
             </configuration>
           </execution>
         </executions>
@@ -50,4 +34,30 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     </plugins>
   </build>
 
+  <repositories>
+    <!-- needed to resolve org.junit and org.apache.ant, org.eclipse.osgi, etc. -->
+    <repository>
+      <id>JBoss Tools Target Platform Site</id>
+      <url>http://download.jboss.org/jbosstools/updates/kepler/</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <!-- needed to resolve org.apache.commons.beanutils -->
+    <repository>
+      <id>Orbit Update Site</id>
+      <url>http://download.jboss.org/jbosstools/updates/requirements/orbit/S20130427215344/</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
 </project>
