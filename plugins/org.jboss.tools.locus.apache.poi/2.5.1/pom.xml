@@ -31,7 +31,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                   <groupId>poi</groupId>
                   <artifactId>poi</artifactId>
                   <version>2.5.1</version>
-                  <!-- not needed <destFileName>poi.jar</destFileName> -->
                 </artifactItem>
                 <artifactItem>
                   <groupId>poi</groupId>
