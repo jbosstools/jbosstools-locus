@@ -3,3 +3,6 @@ mockito-all-src.jar
 sources/*.jar
 separate-jars/*.jar
 mockito-*.jar
+javadoc
+separate-jars
+sources
