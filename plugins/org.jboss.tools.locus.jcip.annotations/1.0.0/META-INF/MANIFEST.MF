@@ -3,8 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.jboss.tools.locus.jcip.annotations
 Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ClassPath: jcip-annotations.jar
 Export-Package: net.jcip.annotations
