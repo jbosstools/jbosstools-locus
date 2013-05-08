@@ -15,7 +15,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <BUILD_ALIAS>Final_patched_TEIIDDES-1681</BUILD_ALIAS>
   </properties>
 
- <build>
+  <build>
     <plugins>
 
       <!-- hack to allow Access restriction failures when compiling to be only discouraged -->
@@ -44,11 +44,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
               <outputDirectory>${basedir}/src</outputDirectory>
               <overWrite>true</overWrite>
               <artifactItems>
-                <artifactItem>
-                  <groupId>org.mockito</groupId>
-                  <artifactId>mockito-all</artifactId>
-                  <version>1.9.5</version>
-                </artifactItem>
                 <artifactItem>
                   <groupId>org.mockito</groupId>
                   <artifactId>mockito-all</artifactId>
