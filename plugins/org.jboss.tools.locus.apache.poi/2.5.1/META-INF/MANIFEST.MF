@@ -3,9 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.jboss.tools.locus.apache.poi
 Bundle-Version: 2.5.1.qualifier
-Bundle-ClassPath: poi.jar,
- poi-contrib.jar,
- poi-scratchpad.jar
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.apache.poi.contrib.metrics,

@@ -18,14 +18,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <version>2.4</version>
         <executions>
           <execution>
-            <id>get-binaries</id>
+            <id>get-binaries-and-unpack</id>
             <phase>validate</phase>
             <goals>
-              <goal>copy</goal>
+              <goal>unpack</goal>
             </goals>
             <configuration>
-              <stripVersion>true</stripVersion>
-              <outputDirectory>${basedir}</outputDirectory>
+              <outputDirectory>${basedir}/src</outputDirectory>
+              <overWrite>true</overWrite>
               <artifactItems>
                 <artifactItem>
                   <groupId>poi</groupId>
@@ -37,13 +37,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                   <groupId>poi</groupId>
                   <artifactId>poi-contrib-2.5.1-final</artifactId>
                   <version>20040804</version>
-                  <destFileName>poi-contrib.jar</destFileName>
                 </artifactItem>
                 <artifactItem>
                   <groupId>poi</groupId>
                   <artifactId>poi-scratchpad-2.5.1-final</artifactId>
                   <version>20040804</version>
-                  <destFileName>poi-scratchpad.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>
