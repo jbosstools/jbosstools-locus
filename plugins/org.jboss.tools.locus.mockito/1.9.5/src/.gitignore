@@ -6,3 +6,4 @@ asm-license.txt
 cglib-license.txt
 hamcrest-license.txt
 objenesis-license.txt
+!org/mockito/configuration/MockitoConfiguration.java

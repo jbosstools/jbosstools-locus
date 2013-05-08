@@ -17,33 +17,43 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
  <build>
     <plugins>
+
+      <!-- hack to allow Access restriction failures when compiling to be only discouraged -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-compiler-plugin</artifactId>
+        <version>${tychoVersion}</version>
+        <configuration>
+          <!-- more warnings like this: <compilerArgument>-warn:+discouraged,forbidden</compilerArgument> -->
+          <compilerArgument>-warn:forbidden</compilerArgument>
+        </configuration>
+      </plugin>
+
      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <version>2.4</version>
         <executions>
           <execution>
-            <id>get-binaries</id>
+            <id>get-binaries-and-unpack</id>
             <phase>validate</phase>
             <goals>
-              <goal>copy</goal>
+              <goal>unpack</goal>
             </goals>
             <configuration>
-              <stripVersion>true</stripVersion>
-              <outputDirectory>${basedir}</outputDirectory>
+              <outputDirectory>${basedir}/src</outputDirectory>
+              <overWrite>true</overWrite>
               <artifactItems>
                 <artifactItem>
                   <groupId>org.mockito</groupId>
                   <artifactId>mockito-all</artifactId>
                   <version>1.9.5</version>
-                  <destFileName>mockito-all.jar</destFileName>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.mockito</groupId>
                   <artifactId>mockito-all</artifactId>
                   <version>1.9.5</version>
                   <classifier>sources</classifier>
-                  <destFileName>mockito-all-src.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>
@@ -71,5 +81,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <!-- needed to resolve org.junit and org.apache.ant, org.eclipse.osgi, etc. -->
+    <repository>
+      <id>JBoss Tools Target Platform Site</id>
+      <url>http://download.jboss.org/jbosstools/updates/kepler/</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
 
 </project>
