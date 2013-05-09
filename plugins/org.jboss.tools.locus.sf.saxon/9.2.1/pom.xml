@@ -17,6 +17,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
   <build>
     <plugins>
+
+      <!-- 1. get zip of sources and binaries -->
       <plugin>
         <groupId>com.googlecode.maven-download-plugin</groupId>
         <artifactId>maven-download-plugin</artifactId>
@@ -35,6 +37,56 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
             </configuration>
           </execution>
         </executions>
+      </plugin>
+
+      <!-- 2. get more sources (from svn) -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <id>svn</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>svn</executable>
+          <arguments>
+            <argument>co</argument>
+            <argument>http://svn.code.sf.net/p/saxon/code/latest9.2/hej/</argument>
+            <argument>${basedir}/sources/</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+
+      <!-- 3. get binaries -->
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.6</version>
+          <executions>
+              <execution>
+                  <id>pack-jars-with-bin-and-src</id>
+                  <phase>package</phase>
+                  <configuration>
+                      <tasks>
+                        <zip update="true" duplicate="preserve" destfile="${basedir}/target/org.jboss.tools.locus.sf.saxon-9.2.1-SNAPSHOT.jar">
+                          <zipfileset src="${basedir}/saxon9he.jar" excludes="**/META-INF/MANIFEST.MF"/>
+                        </zip>
+                        <zip update="true" duplicate="preserve" destfile="${basedir}/target/org.jboss.tools.locus.sf.saxon-9.2.1-SNAPSHOT-sources.jar">
+                          <zipfileset dir="${basedir}/sources/" excludes="**/META-INF/MANIFEST.MF"/>
+                        </zip>
+                      </tasks>
+                  </configuration>
+                  <goals>
+                      <goal>run</goal>
+                  </goals>
+              </execution>
+          </executions>
       </plugin>
     </plugins>
   </build>

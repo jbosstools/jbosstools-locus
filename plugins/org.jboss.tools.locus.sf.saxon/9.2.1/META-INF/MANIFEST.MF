@@ -3,8 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.jboss.tools.locus.sf.saxon
 Bundle-Version: 9.2.1.qualifier
-Bundle-ClassPath: saxon9he.jar,
- .
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: javax.xml.xquery,
