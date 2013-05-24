@@ -15,6 +15,7 @@
   <modules>
     <module>org.jboss.tools.locus.jcip.annotations</module>
     <module>org.jboss.tools.locus.easytesting.fest-assert</module>
+    <module>org.jboss.tools.locus.easytesting.fest-util</module>
     <module>org.jboss.tools.locus.sf.saxon</module>
     <module>org.jboss.tools.locus.apache.poi</module>
     <module>org.jboss.tools.locus.mockito</module>

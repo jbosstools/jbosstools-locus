@@ -3,11 +3,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <modelVersion>4.0.0</modelVersion> 
   <parent>
     <groupId>org.jboss.tools.locus.plugins</groupId>
-    <artifactId>easytesting.fest-assert</artifactId>
+    <artifactId>easytesting.fest-util</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>org.jboss.tools.locus.easytesting.fest-assert</artifactId> 
-  <version>1.4.0-SNAPSHOT</version>
+  <artifactId>org.jboss.tools.locus.easytesting.fest-util</artifactId> 
+  <version>1.1.6-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 
  <build>
@@ -29,16 +29,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
               <artifactItems>
                 <artifactItem>
                   <groupId>org.easytesting</groupId>
-                  <artifactId>fest-assert</artifactId>
-                  <version>1.4</version>
-                  <destFileName>fest-assert.jar</destFileName>
+                  <artifactId>fest-util</artifactId>
+                  <version>1.1.6</version>
+                  <destFileName>fest-util.jar</destFileName>
                 </artifactItem>
                 <artifactItem>
                   <groupId>org.easytesting</groupId>
-                  <artifactId>fest-assert</artifactId>
-                  <version>1.4</version>
+                  <artifactId>fest-util</artifactId>
+                  <version>1.1.6</version>
                   <classifier>sources</classifier>
-                  <destFileName>fest-assert-src.jar</destFileName>
+                  <destFileName>fest-util-src.jar</destFileName>
                 </artifactItem>
               </artifactItems>
             </configuration>

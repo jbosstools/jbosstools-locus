@@ -261,7 +261,31 @@
   </profile>
   </profiles>
 
-  <repositories>
+ <repositories>
+    <!-- needed to resolve org.junit and org.apache.ant, org.eclipse.osgi, etc. -->
+    <repository>
+      <id>JBoss Tools Target Platform Site</id>
+      <url>http://download.jboss.org/jbosstools/updates/juno/</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+    <!-- needed to resolve org.apache.commons.beanutils -->
+    <repository>
+      <id>Orbit Update Site</id>
+      <url>http://download.jboss.org/jbosstools/updates/requirements/orbit/S20130427215344/</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
     <repository>
       <id>jboss-releases</id>
       <name>JBoss Releases Maven Repository</name>
