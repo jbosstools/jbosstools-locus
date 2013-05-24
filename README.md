@@ -2,84 +2,61 @@
 
 ## Summary
 
-_JBoss Tools Locus_ is an adjunct to [Eclipse Orbit](http://www.eclipse.org/orbit/). This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed. 
+_JBoss Tools Locus_ is an adjunct to [Eclipse Orbit](http://www.eclipse.org/orbit/). This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed by p2 based builds and products. 
 
 This project's contents should never duplicate what's already in Eclipse Orbit; instead, it should provide newer versions of plugins already in Orbit, or plugins which cannot be included in Orbit for some reason (technical, licensing or otherwise).
 
-## Install
+## Why Locus ? 
 
-_JBoss Tools Locus_ is part of [JBoss Tools](http://jboss.org/tools) from
-which it can be [downloaded and installed](http://jboss.org/tools/download)
-on its own or together with the full JBoss Tools distribution.
+Locus was created because we started seeing a number of jars being repeately added to JBoss Tools or related plugins which Eclipse Orbit for mixed reasons does not contain. Thus we needed something to provide a repository to be used for builds/downloads.
 
-## Get the code
+### Why not just use Orbit ? 
 
-The easiest way to get started with the code is to [create your own fork](http://help.github.com/forking/), 
-and then clone your fork:
+Eclipse Orbit's [mandate](http://www.eclipse.org/orbit/) states:
 
-    $ git clone git@github.com:<you>/jbosstools-locus.git
-    $ cd jbosstools-locus
-    $ git remote add upstream git://github.com/nickboldt/jbosstools-locus.git
-	
-At any time, you can pull changes from the upstream and merge them onto your master:
+	"The Orbit mandate does not allow the project to be used for
+	building or maintaining third-party libraries that are not
+	approved by the Eclipse foundation for us in Eclipse
+	projects."
 
-    $ git checkout master               # switches to the 'master' branch
-    $ git pull upstream master          # fetches all 'upstream' changes and merges 'upstream/master' onto your 'master' branch
-    $ git push origin                   # pushes all the updates to your fork, which should be in-sync with 'upstream'
+This mandate means that if no eclipse.org project requests new jars or updates because of bugs in the
+Eclipse.org Orbit or a 3rd party jar are missing there will not be any updates/additions. This have lead to us being
+stuck with older or buggy 3rd party jars than what we would like thus we needed to find another way to handle this.
 
-The general idea is to keep your 'master' branch in-sync with the
-'upstream/master'.
+Thus _JBoss Tools Locus_ exists mainly to support development of [JBoss Tools](http://jboss.org/tools), but
+the Locus site is not tied to any specific release of JBoss Tools. 
 
-## Building JBoss Tools Locus
+The site it self is not meant to be used directly by users, but mainly used to have a common set of dependencies that
+can be used in builds and actual releases.
 
-To build _JBoss Tools Locus_ requires specific versions of Java and
-Maven. Also, there is some Maven setup. The [How to Build JBoss Tools with Maven 3](https://community.jboss.org/wiki/HowToBuildJBossToolsWithMaven3)
-document will guide you through that setup.
+### Rules/Guidelines
 
-This command will run the build:
+The following is the current guidelines for libraries included in Locus.
+They are heavily based by (Orbit)[http://wiki.eclipse.org/Adding_Bundles_to_Orbit]'s rules, but adjusted to be more lightweight and with smaller chance of overlap.
 
-    $ mvn clean verify
+1. Do not put anything into Locus before having tried hard to get it into Eclipse Orbit.
+    * See [Orbit FAQ](http://wiki.eclipse.org/index.php/Orbit_Faq) on how to get something into Orbit.
+1. Do not include jars directly into the repository, use Maven coordinates for the build as much as possible.
+    * Want to keep the repository lean and clean for easy building and contributions.
+1. Do not build from source, use the already available public binaries.
+    * We are not trying to create forks of libraries.
+1. Each plugin should have:
+    * LICENSE file with info about the relevant license
+    * A matching source bundle
+1. Set the Bundle-RequiredExecutionEnvironment header to the absolute minimum JRE required by the library
+1. Do always use `org.jboss.tools.locus.<libraryname>` as bundleid
+    * The bundle id is set to Locus to avoid any [potential conflicts](http://wiki.eclipse.org/Bundle_Naming) with Orbit.
+1. `Bundle-Version` should be the original library version number followed by .qualifier in the fourth segment. In the event that the original number is already four segments, that version number should be used and then followed by "_qualifier"
+1. Do not modify the functionallity or behavior of any library.
+    * Mockito is the only exception to this because of [this Mockito bug](https://groups.google.com/forum/?hl=en&fromgroups=#!topic/mockito/eLE186uE0uc), documented [here](https://issues.jboss.org/browse/JBIDE-14315)
 
-If you just want to check if things compiles/builds you can run:
+### How do I use a library from Locus
 
-    $ mvn clean verify -DskipTest=true
+Where possible use 'Import-Package' instead of 'Require-Bundle' to reduce sensitivity to different bundlings of the same library.
 
-But *do not* push changes without having the new and existing unit tests pass!
- 
-## Contribute fixes and features
+TBA: Info about usage of Locus from .target and pom.xml files
 
-_JBoss Tools Locus_ is open source, and we welcome anybody that wants to
-participate and contribute!
+### What does 'Locus' mean ?
 
-If you want to fix a bug or make any changes, please log an issue in
-the [JBoss Tools JIRA](https://issues.jboss.org/browse/JBDE)
-describing the bug or new feature and give it a component type of
-`bpel`. Then we highly recommend making the changes on a
-topic branch named with the JIRA issue number. For example, this
-command creates a branch for the JBIDE-1234 issue:
-
-	$ git checkout -b jbide-1234
-
-After you're happy with your changes and a full build (with unit
-tests) runs successfully, commit your changes on your topic branch
-(with good comments). Then it's time to check for any recent changes
-that were made in the official repository:
-
-	$ git checkout master               # switches to the 'master' branch
-	$ git pull upstream master          # fetches all 'upstream' changes and merges 'upstream/master' onto your 'master' branch
-	$ git checkout jbide-1234           # switches to your topic branch
-	$ git rebase master                 # reapplies your changes on top of the latest in master
-	                                      (i.e., the latest from master will be the new base for your changes)
-
-If the pull grabbed a lot of changes, you should rerun your build with
-tests enabled to make sure your changes are still good.
-
-You can then push your topic branch and its changes into your public fork repository:
-
-	$ git push origin jbide-1234         # pushes your topic branch into your public fork of JBoss Tools Locus
-
-And then [generate a pull-request](http://help.github.com/pull-requests/) where we can
-review the proposed changes, comment on them, discuss them with you,
-and if everything is good merge the changes right into the official
-repository.
+Locus has many [meanings](http://www.thefreedictionary.com/locus), one of them is "a set of points whose location satisfies or is determined by one or more specified conditions, the locus of points equidistant from a given point is a circle". Thus it is not an Orbit, but similar.
 
