@@ -32,9 +32,10 @@ can be used in builds and actual releases.
 ### Rules/Guidelines
 
 The following is the current guidelines for libraries included in Locus.
-They are heavily based by (Orbit)[http://wiki.eclipse.org/Adding_Bundles_to_Orbit]'s rules, but adjusted to be more lightweight and with smaller chance of overlap.
+They are heavily based by [Orbit](http://wiki.eclipse.org/Adding_Bundles_to_Orbit)'s rules, but adjusted to be more lightweight and with smaller chance of overlap.
 
 1. Do not put anything into Locus before having tried hard to get it into Eclipse Orbit.
+    * See [Orbit builds](http://download.eclipse.org/tools/orbit/downloads/) to see existing Orbit content. 
     * See [Orbit FAQ](http://wiki.eclipse.org/index.php/Orbit_Faq) on how to get something into Orbit.
 1. Do not include jars directly into the repository, use Maven coordinates for the build as much as possible.
     * Want to keep the repository lean and clean for easy building and contributions.
