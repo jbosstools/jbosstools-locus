@@ -31,8 +31,8 @@
             </goals>
             <configuration>
               <associateSites>
-                <site>http://download.jboss.org/jbosstools/updates/kepler/</site>
-                <site>http://download.jboss.org/jbosstools/updates/development/kepler/</site>
+                <site>http://download.jboss.org/jbosstools/updates/${targetEclipseVersionName}/</site>
+                <site>http://download.jboss.org/jbosstools/updates/development/${targetEclipseVersionName}/</site>
               </associateSites>
               <siteTemplateFolder>siteTemplateFolder</siteTemplateFolder>
               <symbols>

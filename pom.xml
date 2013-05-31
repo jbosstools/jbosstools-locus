@@ -11,6 +11,7 @@
     <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
     <BUILD_ALIAS>Final</BUILD_ALIAS>
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
+    <targetEclipseVersionName>juno</targetEclipseVersionName>
     <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
          you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
     <update.site.description>&amp;shy;</update.site.description>
@@ -172,7 +173,7 @@
         <plugin>
           <groupId>com.googlecode.maven-download-plugin</groupId>
           <artifactId>maven-download-plugin</artifactId>
-          <version>0.2-SNAPSHOT</version>
+          <version>1.1.0</version>
           <configuration>
             <skip>${skipRequirements}</skip>
             <outputDirectory>${requirementsDirectory}</outputDirectory>
@@ -265,7 +266,7 @@
     <!-- needed to resolve org.junit and org.apache.ant, org.eclipse.osgi, etc. -->
     <repository>
       <id>JBoss Tools Target Platform Site</id>
-      <url>http://download.jboss.org/jbosstools/updates/juno/</url>
+      <url>http://download.jboss.org/jbosstools/updates/${targetEclipseVersionName}/</url>
       <layout>p2</layout>
       <snapshots>
         <enabled>true</enabled>
