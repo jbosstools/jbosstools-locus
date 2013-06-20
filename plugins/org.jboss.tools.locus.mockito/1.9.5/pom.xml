@@ -1,6 +1,6 @@
 <project
 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion> 
+	<modelVersion>4.0.0</modelVersion>
 	<parent>
 	  <groupId>org.jboss.tools.locus.plugins</groupId>
 	  <artifactId>mockito</artifactId>
@@ -35,8 +35,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <version>2.4</version>
         <executions>
           <execution>
-            <id>get-binaries-and-unpack</id>
-            <phase>validate</phase>
+            <id>get-sources</id>
+            <phase>generate-resources</phase>
             <goals>
               <goal>unpack</goal>
             </goals>
