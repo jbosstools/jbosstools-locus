@@ -5,12 +5,11 @@
   <parent>
     <groupId>org.jboss.tools</groupId>
     <artifactId>locus</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
   </parent>
   <groupId>org.jboss.tools.locus</groupId>
   <artifactId>plugins</artifactId>
   <name>locus.plugins</name>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
     <module>org.jboss.tools.locus.jcip.annotations</module>
