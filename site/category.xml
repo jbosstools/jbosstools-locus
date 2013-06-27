@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <category-def name="AllBundles" label="All JBoss Tools Locus Bundles"/>
+  <!-- JBIDE-15046 remove Fest
   <bundle id="org.jboss.tools.locus.easytesting.fest-assert"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.easytesting.fest-util"><category name="AllBundles"/></bundle>
+  -->
   <bundle id="org.jboss.tools.locus.jcip.annotations"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.mockito"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon"><category name="AllBundles"/></bundle>
 
   <category-def name="AllSources" label="All JBoss Tools Locus Source Bundles"/>
+  <!-- JBIDE-15046 remove Fest
   <bundle id="org.jboss.tools.locus.easytesting.fest-assert.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.easytesting.fest-util.source"><category name="AllSources"/></bundle>
+  -->
   <bundle id="org.jboss.tools.locus.jcip.annotations.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.mockito.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon.source"><category name="AllSources"/></bundle>
