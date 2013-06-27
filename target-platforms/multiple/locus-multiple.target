@@ -11,19 +11,19 @@
       <!-- don't forget to increment these files when moving up a version:
         build.xml, *.target*, publish.sh, target2p2mirror.xml -->
       <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20130517111416"/>
-      <!-- need:
-            org.junit [4.11.0,5.0.0) + hamcrest
-            org.apache.ant [1.8.4,2.0.0) + apache.commons.collections + apache.commons.logging
+      <!-- org.junit [4.11.0,5.0.0) + hamcrest dep
+           org.apache.ant [1.8.4,2.0.0) + apache.commons deps
       -->
       <unit id="org.junit" version="4.11.0.v201303080030"/>
         <unit id="org.hamcrest.core" version="1.3.0.v201303031735"/>
+
       <unit id="org.apache.ant" version="1.8.4.v201303080030"/>
         <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
         <unit id="org.apache.commons.collections" version="3.2.0.v2013030210310"/>
         <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
     </location>
 
-    <!-- org.apache.ant -->
+    <!-- org.eclipse.osgi -->
     <location includeAllPlatforms="false" includeMode="planner" type="InstallableUnit" includeSource="true">
       <repository location="http://download.jboss.org/jbosstools/updates/requirements/juno/201302132140-R/"/>
       <unit id="org.eclipse.osgi" version="3.8.2.v20130124-134944"/>
