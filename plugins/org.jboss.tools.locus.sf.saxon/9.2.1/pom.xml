@@ -75,10 +75,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                   <configuration>
                       <tasks>
                         <zip update="true" duplicate="preserve" destfile="${basedir}/target/org.jboss.tools.locus.sf.saxon-9.2.1-SNAPSHOT.jar">
-                          <zipfileset src="${basedir}/saxon9he.jar" excludes="**/META-INF/MANIFEST.MF"/>
+                          <zipfileset src="${basedir}/saxon9he.jar" excludes="**/META-INF/MANIFEST.MF, **/META-INF/SAXONICA.*"/>
                         </zip>
                         <zip update="true" duplicate="preserve" destfile="${basedir}/target/org.jboss.tools.locus.sf.saxon-9.2.1-SNAPSHOT-sources.jar">
-                          <zipfileset dir="${basedir}/sources/" excludes="**/META-INF/MANIFEST.MF"/>
+                          <zipfileset dir="${basedir}/sources/" excludes="**/META-INF/MANIFEST.MF, **/META-INF/SAXONICA.*"/>
                         </zip>
                       </tasks>
                   </configuration>
