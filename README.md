@@ -90,6 +90,8 @@ In this example the version to be released is 1.0.0.CR2 and locus repository is 
     $ cd site
     ### set specific release version
     $ mvn -Dtycho.mode=maven versions:set -DnewVersion=1.0.0.CR2
+    $ git add pom.xml
+    $ git commit -m "JBoss Tools Locus 1.0.0.CR2"
     # git tag and push to tag and master
     $ git tag 1.0.0.CR2
     $ git push origin 1.0.0.CR2
@@ -102,6 +104,8 @@ In this example the version to be released is 1.0.0.CR2 and locus repository is 
     $ mvn deploy
     ### Set master to new snapshot version
     $ mvn -Dtycho.mode=maven versions:set -DnewVersion=1.0.0.CR3-SNAPSHOT
+    $ git add pom.xml
+    $ git commit -m "Master now 1.0.0.CR3-SNAPSHOT"
     $ git push origin master
 
 After those steps, the artifact should be published to Nexus staging repository. So you (or better if it is someone else) can login to http://repository.jboss.org/nexus , and review, close and release the staging repository. Once released, the repository becomes accessible at https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/`version`/update.site-`version`.zip-unzip/
