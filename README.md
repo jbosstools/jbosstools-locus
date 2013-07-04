@@ -10,6 +10,26 @@ This project's contents should never duplicate what's already in Eclipse Orbit; 
 
 Locus was created because we started seeing a number of jars being repeately added to JBoss Tools or related plugins which Eclipse Orbit for mixed reasons does not contain. Thus we needed something to provide a repository to be used for builds/downloads.
 
+### How do I use a library from Locus
+
+The JBoss Tools Locus update is [published to Nexus](https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/).
+
+You can therefore use Locus bundles in your target platform (eg., [locus.target](https://github.com/Teiid-Designer/teiid-designer/blob/master/target-platform/locus.target) file) like this:
+
+    <target name="locus" sequenceNumber="4">
+      <locations>
+        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+          <repository location="https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/1.0.0.CR1/update.site-1.0.0.CR1.zip-unzip/"/>
+          <unit id="org.jboss.tools.locus.jcip.annotations" version="1.0.0.Final-v20130702-1500"/>
+          <unit id="org.jboss.tools.locus.mockito" version="1.9.5.Final_patched_TEIIDDES-1681-v20130702-1500"/>
+          <unit id="org.jboss.tools.locus.sf.saxon" version="9.2.1.5j-Final-v20130702-1500"/>
+        </location>
+      </locations>
+      <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+    </target>
+
+Where possible use 'Import-Package' instead of 'Require-Bundle' in your consumer's MANIFEST.MF to reduce sensitivity to different bundlings of the same library.
+
 ### Why not just use Orbit ? 
 
 Eclipse Orbit's [mandate](http://www.eclipse.org/orbit/) states:
@@ -28,6 +48,8 @@ the Locus site is not tied to any specific release of JBoss Tools.
 
 The site it self is not meant to be used directly by users, but mainly used to have a common set of dependencies that
 can be used in builds and actual releases.
+
+## Maintaining Locus
 
 ### Rules/Guidelines
 
@@ -57,29 +79,22 @@ dependencies like ant, junit, and osgi) will not necessarily match each other, o
 in Locus.
 
 
-### How do I use a library from Locus?
+### Building and Releasing
 
-Where possible use 'Import-Package' instead of 'Require-Bundle' to reduce sensitivity to different bundlings of the same library.
+Locus builds with a simple `mvn clean verify`. This produces a copy of the latest SNAPSHOT of Locus update-site in `site/target/repository`.
 
-TBA: Info about usage of Locus from .target and pom.xml files
-The JBoss Tools Locus update is [published to Nexus](https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/).
+The Locus update-site is released on JBoss Nexus (only releases are allowed so far, SNAPSHOTs are not available published). In order to publish a new release of Locus, just follow these steps:
 
-You can therefore use Locus bundles in your target platform (eg., [locus.target](https://github.com/Teiid-Designer/teiid-designer/blob/master/target-platform/locus.target) file) like this:
+1. Edit `site/pom.xml` and set the `<version>...</version>` of this artifact to the desired version, such as 1.0.0.CR2
+2. Tag it jbosstools-locus-`version`, for example `jbosstools-locus-1.0.0.CR2` and push this tag to the jbosstools-locus Git repository.
+3. Clear you local repository to make sure you won't consume older stuff: `rm -r ~/.m2/repository/org/jboss/tools/locus`
+4. From Locus root, run `mvn clean install`
+5. Then `cd site`
+6. Then `mvn deploy`
+7. Prepare to next version by setting version of `site/pom.xml` to next stream suffixed with `-SNAPSHOT`, for example `1.0.0.CR3-SNAPSHOT`, and then push those changes to the jbosstools-locus repository in the master branch.
 
-    <target name="locus" sequenceNumber="4">
-      <locations>
-        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-          <repository location="https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/1.0.0.CR1/update.site-1.0.0.CR1.zip-unzip/"/>
-          <unit id="org.jboss.tools.locus.jcip.annotations" version="1.0.0.Final-v20130702-1500"/>
-          <unit id="org.jboss.tools.locus.mockito" version="1.9.5.Final_patched_TEIIDDES-1681-v20130702-1500"/>
-          <unit id="org.jboss.tools.locus.sf.saxon" version="9.2.1.5j-Final-v20130702-1500"/>
-        </location>
-      </locations>
-      <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-    </target>
-
+After those steps, the artifact should be published to Nexus staging repository. So you (or better if it is someone else) can login to http://repository.jboss.org/nexus , and review, close and release the staging repository. Once released, the repository becomes accessible at https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/`version`/update.site-`version`.zip-unzip/
 
 ### What does 'Locus' mean ?
 
 Locus has many [meanings](http://www.thefreedictionary.com/locus), one of them is "a set of points whose location satisfies or is determined by one or more specified conditions, the locus of points equidistant from a given point is a circle". Thus it is not an Orbit, but similar.
-
