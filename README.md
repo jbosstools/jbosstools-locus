@@ -48,9 +48,14 @@ They are heavily based by [Orbit](http://wiki.eclipse.org/Adding_Bundles_to_Orbi
 1. Do always use `org.jboss.tools.locus.<libraryname>` as bundleid
     * The bundle id is set to Locus to avoid any [potential conflicts](http://wiki.eclipse.org/Bundle_Naming) with Orbit.
 1. `Bundle-Version` should be the original library version number followed by .qualifier in the fourth segment. In the event that the original number is already four segments, that version number should be used and then followed by "_qualifier"
-2. Update Site and Target Platform versions will not necessarily match each other, or any of the plugins in Locus.
 1. Do not modify the functionality or behavior of any library.
     * Mockito is the only exception to this because of [this Mockito bug](https://groups.google.com/forum/?hl=en&fromgroups=#!topic/mockito/eLE186uE0uc), documented [here](https://issues.jboss.org/browse/JBIDE-14315)
+
+Bundles will be published into a p2 update site, which will then be pushed to Nexus. 
+Please note that the version of the Update Site (and the Target Platform used to resolve upstream 
+dependencies like ant, junit, and osgi) will not necessarily match each other, or any of the plugins 
+in Locus.
+
 
 ### How do I use a library from Locus?
 
