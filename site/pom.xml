@@ -11,6 +11,7 @@
   <name>JBoss Tools - Locus</name>
   <groupId>org.jboss.tools.locus</groupId>
   <artifactId>update.site</artifactId>
+  <version>1.0.0.CR2</version>
   <packaging>eclipse-repository</packaging>
 
   <properties>
