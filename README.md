@@ -85,13 +85,24 @@ Locus builds with a simple `mvn clean verify`. This produces a copy of the lates
 
 The Locus update-site is released on JBoss Nexus (only releases are allowed so far, SNAPSHOTs are not available published). In order to publish a new release of Locus, just follow these steps:
 
-1. Edit `site/pom.xml` and set the `<version>...</version>` of this artifact to the desired version, such as 1.0.0.CR2
-2. Tag it jbosstools-locus-`version`, for example `jbosstools-locus-1.0.0.CR2` and push this tag to the jbosstools-locus Git repository.
-3. Clear you local repository to make sure you won't consume older stuff: `rm -r ~/.m2/repository/org/jboss/tools/locus`
-4. From Locus root, run `mvn clean install`
-5. Then `cd site`
-6. Then `mvn deploy`
-7. Prepare to next version by setting version of `site/pom.xml` to next stream suffixed with `-SNAPSHOT`, for example `1.0.0.CR3-SNAPSHOT`, and then push those changes to the jbosstools-locus repository in the master branch.
+In this example the version to be released is 1.0.0.CR2 and locus repository is `origin`
+
+    $ cd site
+    ### set specific release version
+    $ mvn -Dtycho.mode=maven versions:set -DnewVersion=1.0.0.CR2
+    # git tag and push to tag and master
+    $ git tag 1.0.0.CR2
+    $ git push origin 1.0.0.CR2
+    $ git push origin master
+    ### Clear repository to be sure not picking up old data
+    $ rm -r ~/.m2/repository/org/jboss/tools/locus
+    $ cd ..
+    $ mvn clean install
+    $ cd site
+    $ mvn deploy
+    ### Set master to new snapshot version
+    $ mvn -Dtycho.mode=maven versions:set -DnewVersion=1.0.0.CR3-SNAPSHOT
+    $ git push origin master
 
 After those steps, the artifact should be published to Nexus staging repository. So you (or better if it is someone else) can login to http://repository.jboss.org/nexus , and review, close and release the staging repository. Once released, the repository becomes accessible at https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/`version`/update.site-`version`.zip-unzip/
 
