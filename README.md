@@ -48,14 +48,31 @@ They are heavily based by [Orbit](http://wiki.eclipse.org/Adding_Bundles_to_Orbi
 1. Do always use `org.jboss.tools.locus.<libraryname>` as bundleid
     * The bundle id is set to Locus to avoid any [potential conflicts](http://wiki.eclipse.org/Bundle_Naming) with Orbit.
 1. `Bundle-Version` should be the original library version number followed by .qualifier in the fourth segment. In the event that the original number is already four segments, that version number should be used and then followed by "_qualifier"
-1. Do not modify the functionallity or behavior of any library.
+2. Update Site and Target Platform versions will not necessarily match each other, or any of the plugins in Locus.
+1. Do not modify the functionality or behavior of any library.
     * Mockito is the only exception to this because of [this Mockito bug](https://groups.google.com/forum/?hl=en&fromgroups=#!topic/mockito/eLE186uE0uc), documented [here](https://issues.jboss.org/browse/JBIDE-14315)
 
-### How do I use a library from Locus
+### How do I use a library from Locus?
 
 Where possible use 'Import-Package' instead of 'Require-Bundle' to reduce sensitivity to different bundlings of the same library.
 
 TBA: Info about usage of Locus from .target and pom.xml files
+The JBoss Tools Locus update is [published to Nexus](https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/).
+
+You can therefore use Locus bundles in your target platform (eg., [locus.target](https://github.com/Teiid-Designer/teiid-designer/blob/master/target-platform/locus.target) file) like this:
+
+    <target name="locus" sequenceNumber="4">
+      <locations>
+        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+          <repository location="https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/1.0.0.CR1/update.site-1.0.0.CR1.zip-unzip/"/>
+          <unit id="org.jboss.tools.locus.jcip.annotations" version="1.0.0.Final-v20130702-1500"/>
+          <unit id="org.jboss.tools.locus.mockito" version="1.9.5.Final_patched_TEIIDDES-1681-v20130702-1500"/>
+          <unit id="org.jboss.tools.locus.sf.saxon" version="9.2.1.5j-Final-v20130702-1500"/>
+        </location>
+      </locations>
+      <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+    </target>
+
 
 ### What does 'Locus' mean ?
 
