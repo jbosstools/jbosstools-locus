@@ -16,9 +16,20 @@
 
   <properties>
     <update.site.name>${project.name}</update.site.name>
+
+    <aopalliance-bundle-version>1.0_3</aopalliance-bundle-version>
   </properties>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tychoVersion}</version>
+        <configuration>
+          <!-- allow Maven artifacts to be used for resolving p2 deps -->
+          <pomDependencies>consider</pomDependencies>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.jboss.tools.tycho-plugins</groupId>
         <artifactId>repository-utils</artifactId>
@@ -74,6 +85,24 @@
       </plugin>
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
+      <version>${aopalliance-bundle-version}</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>fusesource-snapshots</id>
+      <name>fusesource-snapshots</name>
+      <url>http://repo.fusesource.com/nexus/content/groups/public-snapshots</url>
+      <snapshots><enabled>true</enabled></snapshots>
+      <releases><enabled>false</enabled></releases>
+    </repository>
+  </repositories>
 
   <!--
     mvn install -Pmaximum -DBUILD_ID=2013-04-10_01-02-03 -DBUILD_NUMBER=314 -DBUILD_ALIAS=Beta1 -Dupdate.site.description="Stable Milestone" -DJOB_NAME=jbosstools-locus.site_master

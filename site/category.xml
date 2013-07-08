@@ -17,4 +17,8 @@
   <bundle id="org.jboss.tools.locus.jcip.annotations.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.mockito.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon.source"><category name="AllSources"/></bundle>
+
+  <!-- bundles from Maven repos used by Fuse IDE -->
+  <category-def name="AllMavenBundles" label="All JBoss Tools Locus Maven Bundles"/>
+  <bundle id="org.apache.servicemix.bundles.aopalliance"><category name="AllMavenBundles"/></bundle>
 </site>
