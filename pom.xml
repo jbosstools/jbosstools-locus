@@ -44,6 +44,7 @@
     <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
          you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
     <update.site.description>&amp;shy;</update.site.description>
+    <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
   </properties>
 
   <modules>
@@ -92,7 +93,17 @@
                 <arch>x86_64</arch>
               </environment>
             </environments>
+            <sourceReferences>
+               <generate>true</generate>
+            </sourceReferences>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.eclipse.tycho.extras</groupId>
+              <artifactId>tycho-sourceref-jgit</artifactId>
+              <version>${tychoVersion}</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
