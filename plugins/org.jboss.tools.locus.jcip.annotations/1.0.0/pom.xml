@@ -9,34 +9,4 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<artifactId>org.jboss.tools.locus.jcip.annotations</artifactId> 
 	<packaging>eclipse-plugin</packaging>
 
-  <build>
-    <plugins>
-     <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.4</version>
-        <executions>
-          <execution>
-            <id>get-binaries-and-unpack</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${basedir}/src</outputDirectory>
-              <overWrite>true</overWrite>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>net.jcip</groupId>
-                  <artifactId>jcip-annotations</artifactId>
-                  <version>1.0</version>
-                  <classifier>sources</classifier>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 </project>
