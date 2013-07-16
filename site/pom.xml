@@ -75,8 +75,119 @@
     </plugins>
   </build>
 
+  <dependencies>
+    <!-- Apache -->
+    <dependency>
+      <groupId>org.apache.aries.blueprint</groupId>
+      <artifactId>org.apache.aries.blueprint</artifactId>
+      <version>${aries-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.proxy</groupId>
+      <artifactId>org.apache.aries.proxy.api</artifactId>
+      <version>${aries-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries</groupId>
+      <artifactId>org.apache.aries.util</artifactId>
+      <version>${aries-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-blueprint</artifactId>
+      <version>${camel-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <version>${camel-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-osgi</artifactId>
+      <version>${camel-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring</artifactId>
+      <version>${camel-bundle-version}</version>
+    </dependency>
+    <dependency> 
+      <groupId>org.apache.commons</groupId> 
+      <artifactId>com.springsource.org.apache.commons.logging</artifactId> 
+      <version>${commons-logging-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.configadmin</artifactId>
+      <version>${felix-configadmin-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.eventadmin</artifactId>
+      <version>${felix-eventadmin-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
+      <version>${aopalliance-bundle-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j-log4j12-version}</version>
+    </dependency>
+
+    <!-- Springframework -->
+    <!-- These bundles are included on the latest SpringIDE / STS update site, so don't need to be included here:
+          org.springframework.aop, org.springframework.beans, org.springframework.context,
+          org.springframework.core, org.springframework.expression, org.springframework.transaction
+        For 3.1.4.RELEASE,     see: http://download.jboss.org/jbosstools/updates/requirements/springide/3.2.0.201303060654-RELEASE-e4.3/
+        For 4.0.0.20130522-M1, see: http://download.jboss.org/jbosstools/updates/requirements/springide/3.3.0.201307091516-RELEASE/
+    -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.aspects</artifactId>
+      <version>${springframework-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.osgi</groupId>
+      <artifactId>org.springframework.osgi.extender</artifactId>
+      <version>${springframework-osgi-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.osgi</groupId>
+      <artifactId>org.springframework.osgi.extensions.annotation</artifactId>
+      <version>${springframework-osgi-bundle-version}</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository> 
+      <id>com.springsource.repository.bundles.release</id> 
+      <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name> 
+      <url>http://repository.springsource.com/maven/bundles/release</url> 
+    </repository> 
+    <repository> 
+      <id>com.springsource.repository.bundles.external</id> 
+      <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name> 
+      <url>http://repository.springsource.com/maven/bundles/external</url> 
+    </repository>
+    <repository>
+      <id>fusesource-snapshots</id>
+      <name>fusesource-snapshots</name>
+      <url>http://repo.fusesource.com/nexus/content/groups/public-snapshots</url>
+      <snapshots><enabled>true</enabled></snapshots>
+      <releases><enabled>false</enabled></releases>
+    </repository>
+    <repository>
+      <id>slf4j-log4j-releases</id>
+      <name>slf4j-log4j-releases</name>
+      <url>http://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12/1.6.6</url>
+    </repository>
+  </repositories>
   <!--
     mvn install -Pmaximum -DBUILD_ID=2013-04-10_01-02-03 -DBUILD_NUMBER=314 -DBUILD_ALIAS=Beta1 -Dupdate.site.description="Stable Milestone" -DJOB_NAME=jbosstools-locus.site_master
   -->
-
 </project>
