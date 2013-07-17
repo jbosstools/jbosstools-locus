@@ -19,7 +19,7 @@ public class Root extends SystemFunction {
      */
 
      public Expression simplify(ExpressionVisitor visitor) throws XPathException {
-        useContextItemAsDefault(visitor);
+        useContextItemAsDefault();
         return simplifyArguments(visitor);
     }
 
