@@ -28,52 +28,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <compilerArgument>-warn:forbidden</compilerArgument>
         </configuration>
       </plugin>
-
-     <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.4</version>
-        <executions>
-          <execution>
-            <id>get-sources</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${basedir}/src</outputDirectory>
-              <overWrite>true</overWrite>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>org.mockito</groupId>
-                  <artifactId>mockito-all</artifactId>
-                  <version>1.9.5</version>
-                  <classifier>sources</classifier>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>com.googlecode.maven-download-plugin</groupId>
-        <artifactId>maven-download-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>get-sources</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>wget</goal>
-            </goals>
-            <configuration>
-              <url>http://mockito.googlecode.com/files/mockito-1.9.5.zip</url>
-              <md5>d68fdf89dffd77ac401920e94d1f4634</md5>
-              <unpack>true</unpack>
-              <outputDirectory>${basedir}</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
 
