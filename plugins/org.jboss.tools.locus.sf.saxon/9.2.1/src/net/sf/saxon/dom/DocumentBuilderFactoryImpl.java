@@ -28,7 +28,6 @@ public class DocumentBuilderFactoryImpl extends DocumentBuilderFactory {
         setIgnoringElementContentWhitespace(false);
         setNamespaceAware(true);
         setValidating(false);
-        config = new Configuration();
     }
 
     /**

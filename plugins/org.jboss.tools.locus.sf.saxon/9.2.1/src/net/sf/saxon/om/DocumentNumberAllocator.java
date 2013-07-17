@@ -8,14 +8,14 @@ import java.io.Serializable;
  */
 public class DocumentNumberAllocator implements Serializable {
 
-    private long nextDocumentNumber = 0;
+    private int nextDocumentNumber = 0;
 
     /**
      * Allocate a unique document number
      * @return a unique document number
      */
 
-    public synchronized long allocateDocumentNumber() {
+    public synchronized int allocateDocumentNumber() {
         return nextDocumentNumber++;
     }
 }

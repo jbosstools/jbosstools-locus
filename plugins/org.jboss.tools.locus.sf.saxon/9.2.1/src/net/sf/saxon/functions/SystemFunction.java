@@ -231,15 +231,14 @@ public abstract class SystemFunction extends FunctionCall {
 
     /**
     * Set "." as the default value for the first and only argument. Called from subclasses.
-     * @param visitor
-     */
+    */
 
-    protected final void useContextItemAsDefault(ExpressionVisitor visitor) {
+    protected final void useContextItemAsDefault() {
         if (argument.length==0) {
             argument = new Expression[1];
             argument[0] = new ContextItemExpression();
             ExpressionTool.copyLocationInfo(this, argument[0]);
-            visitor.resetStaticProperties();
+            resetLocalStaticProperties();
         }
         // Note that the extra argument is added before type-checking takes place. The
         // type-checking will add any necessary checks to ensure that the context item
