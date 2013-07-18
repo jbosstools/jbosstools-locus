@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools.targetplatforms</groupId>
 	<artifactId>locus-all</artifactId>
-	<version>1.0.0.CR1-SNAPSHOT</version>
+	<version>1.0.0.CR2-SNAPSHOT</version>
 	<name>JBoss Tools Locus Target Platforms</name>
 	<packaging>pom</packaging>
 
