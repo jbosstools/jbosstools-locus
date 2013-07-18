@@ -13,41 +13,12 @@
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
     <targetEclipseVersionName>juno</targetEclipseVersionName>
 
-    <!-- ================ -->
-    <!-- TARGET-PLATFORMS -->
-    <!-- ================ -->
-
-    <!-- JBoss Tools target platforms are versioned: <eclipseMajor>.<eclipseMinorAndMicro>.<revision>.<qualifier>
-         Default version is the minimum API / Eclipse target used for the project
-         In case no profile fits your requested TP version, directly override these next two properties -->
-
-    <!-- default value for the "minimum" profile -->
-    <TARGET_PLATFORM_VERSION>1.0.0.CR1-SNAPSHOT</TARGET_PLATFORM_VERSION>
-    <!-- default value for the "maximum" profile -->
-    <TARGET_PLATFORM_VERSION_MAXIMUM>1.0.0.CR1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
-
-    <!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
-    <!-- when building/testing components, use minumum TP -->
-    <!-- This must be overriden when using other groups for TP, such as jbosstools or jbdevstudio -->
-    <targetPlatformGroup>locus</targetPlatformGroup>
-
-    <!-- ***************************************************************** -->
-    <!-- Use *target* profiles to select other values for those properties -->
-    <!-- ***************************************************************** -->
-    <!-- tpc.groupId is static but defined here to use a completely different target platform (i.e. for JBTIS) -->
-    <tpc.groupId>org.jboss.tools.targetplatforms</tpc.groupId>
-    <!-- tpc.group is one of ${targetPlatformGroup} or ${targetPlatformGroup-maximun} -->
-    <tpc.group>${targetPlatformGroup}</tpc.group>
-    <!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
-    <tpc.targetKind>unified</tpc.targetKind>
-    <tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
-    <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
-         you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
     <update.site.description>&amp;shy;</update.site.description>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
   </properties>
 
   <modules>
+    <module>target-platforms</module>
     <module>plugins</module>
     <module>site</module>
   </modules>
@@ -120,6 +91,13 @@
           <configuration>
             <resolver>p2</resolver>
             <ignoreTychoRepositories>true</ignoreTychoRepositories>
+            <target>
+               <artifact>
+                  <groupId>org.jboss.tools.locus.target-platforms</groupId>
+                  <artifactId>locus-multiple</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+               </artifact>
+            </target>
             <environments>
               <environment>
                 <os>macosx</os>
@@ -300,59 +278,7 @@
       </plugins>
     </build>
   </profile>
-    <profile>
-      <id>target-platform</id>
-      <activation>
-        <property>
-          <name>!no-target-platform</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <target>
-                <artifact>
-                  <groupId>${tpc.groupId}</groupId>
-                  <artifactId>${tpc.group}-${tpc.targetKind}</artifactId>
-                  <version>${tpc.version}</version>
-                  <classifier>${tpc.group}-${tpc.targetKind}</classifier>
-                </artifact>
-              </target>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <!-- Target platform file pointing at the composite target platform
-      AKA multiple.target -->
-    <profile>
-      <id>multiple.target</id>
-      <properties>
-        <tpc.targetKind>multiple</tpc.targetKind>
-      </properties>
-    </profile>
-    <!-- Target platform file pointing at a single update site from which to
-      resolve. See unified.site if you want to resolve against a site w/o using
-      the unified.target file -->
-    <profile>
-      <id>unified.target</id>
-      <properties>
-        <tpc.targetKind>unified</tpc.targetKind>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>maximum</id>
-      <properties>
-        <tpc.version>${TARGET_PLATFORM_VERSION_MAXIMUM}</tpc.version>
-      </properties>
-    </profile>
-  </profiles>
+ </profiles>
 
  <repositories>
     <!-- needed to resolve org.junit and org.apache.ant, org.eclipse.osgi, etc. -->
