@@ -13,6 +13,7 @@
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
     <targetEclipseVersionName>juno</targetEclipseVersionName>
 
+<<<<<<< Updated upstream
     <!-- ================ -->
     <!-- TARGET-PLATFORMS -->
     <!-- ================ -->
@@ -43,11 +44,14 @@
     <tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
     <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
          you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
+=======
+>>>>>>> Stashed changes
     <update.site.description>&amp;shy;</update.site.description>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
   </properties>
 
   <modules>
+    <module>target-platforms</module>
     <module>plugins</module>
     <module>site</module>
   </modules>
@@ -120,6 +124,13 @@
           <configuration>
             <resolver>p2</resolver>
             <ignoreTychoRepositories>true</ignoreTychoRepositories>
+            <target>
+               <artifact>
+                  <groupId>org.jboss.tools.locus.target-platforms</groupId>
+                  <artifactId>locus-multiple</artifactId>
+                  <version>1.0.0-SNAPSHOT</version>
+               </artifact>
+            </target>
             <environments>
               <environment>
                 <os>macosx</os>
@@ -300,59 +311,7 @@
       </plugins>
     </build>
   </profile>
-    <profile>
-      <id>target-platform</id>
-      <activation>
-        <property>
-          <name>!no-target-platform</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <target>
-                <artifact>
-                  <groupId>${tpc.groupId}</groupId>
-                  <artifactId>${tpc.group}-${tpc.targetKind}</artifactId>
-                  <version>${tpc.version}</version>
-                  <classifier>${tpc.group}-${tpc.targetKind}</classifier>
-                </artifact>
-              </target>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <!-- Target platform file pointing at the composite target platform
-      AKA multiple.target -->
-    <profile>
-      <id>multiple.target</id>
-      <properties>
-        <tpc.targetKind>multiple</tpc.targetKind>
-      </properties>
-    </profile>
-    <!-- Target platform file pointing at a single update site from which to
-      resolve. See unified.site if you want to resolve against a site w/o using
-      the unified.target file -->
-    <profile>
-      <id>unified.target</id>
-      <properties>
-        <tpc.targetKind>unified</tpc.targetKind>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>maximum</id>
-      <properties>
-        <tpc.version>${TARGET_PLATFORM_VERSION_MAXIMUM}</tpc.version>
-      </properties>
-    </profile>
-  </profiles>
+ </profiles>
 
  <repositories>
     <!-- needed to resolve org.junit and org.apache.ant, org.eclipse.osgi, etc. -->
