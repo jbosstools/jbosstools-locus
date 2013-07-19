@@ -100,6 +100,11 @@
       <version>${aries-bundle-version}</version>
     </dependency>
     <dependency>
+      <groupId>org.apache.aries.jmx</groupId>
+      <artifactId>org.apache.aries.jmx.core</artifactId>
+      <version>${aries-bundle-version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.aries.proxy</groupId>
       <artifactId>org.apache.aries.proxy.api</artifactId>
       <version>${aries-bundle-version}</version>

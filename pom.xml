@@ -12,40 +12,6 @@
     <BUILD_ALIAS>CR2</BUILD_ALIAS>
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
     <targetEclipseVersionName>juno</targetEclipseVersionName>
-
-<<<<<<< Updated upstream
-    <!-- ================ -->
-    <!-- TARGET-PLATFORMS -->
-    <!-- ================ -->
-
-    <!-- JBoss Tools target platforms are versioned: <eclipseMajor>.<eclipseMinorAndMicro>.<revision>.<qualifier>
-         Default version is the minimum API / Eclipse target used for the project
-         In case no profile fits your requested TP version, directly override these next two properties -->
-
-    <!-- default value for the "minimum" profile -->
-    <TARGET_PLATFORM_VERSION>1.0.0.CR2-SNAPSHOT</TARGET_PLATFORM_VERSION>
-    <!-- default value for the "maximum" profile -->
-    <TARGET_PLATFORM_VERSION_MAXIMUM>1.0.0.CR2-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
-
-    <!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
-    <!-- when building/testing components, use minumum TP -->
-    <!-- This must be overriden when using other groups for TP, such as jbosstools or jbdevstudio -->
-    <targetPlatformGroup>locus</targetPlatformGroup>
-
-    <!-- ***************************************************************** -->
-    <!-- Use *target* profiles to select other values for those properties -->
-    <!-- ***************************************************************** -->
-    <!-- tpc.groupId is static but defined here to use a completely different target platform (i.e. for JBTIS) -->
-    <tpc.groupId>org.jboss.tools.targetplatforms</tpc.groupId>
-    <!-- tpc.group is one of ${targetPlatformGroup} or ${targetPlatformGroup-maximun} -->
-    <tpc.group>${targetPlatformGroup}</tpc.group>
-    <!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
-    <tpc.targetKind>unified</tpc.targetKind>
-    <tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
-    <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
-         you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
-=======
->>>>>>> Stashed changes
     <update.site.description>&amp;shy;</update.site.description>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
   </properties>
