@@ -11,7 +11,6 @@
   <name>JBoss Tools - Locus</name>
   <groupId>org.jboss.tools.locus</groupId>
   <artifactId>update.site</artifactId>
-  <version>1.0.0.CR2</version>
   <packaging>eclipse-repository</packaging>
 
   <properties>
@@ -98,6 +97,11 @@
     <dependency>
       <groupId>org.apache.aries.blueprint</groupId>
       <artifactId>org.apache.aries.blueprint</artifactId>
+      <version>${aries-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries.jmx</groupId>
+      <artifactId>org.apache.aries.jmx.core</artifactId>
       <version>${aries-bundle-version}</version>
     </dependency>
     <dependency>
