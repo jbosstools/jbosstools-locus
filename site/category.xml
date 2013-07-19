@@ -22,6 +22,7 @@
   <category-def name="AllMavenBundles" label="All JBoss Tools Locus Maven Bundles"/>
 
   <bundle id="org.apache.aries.blueprint"><category name="AllMavenBundles"/></bundle>
+  <bundle id="org.apache.aries.jmx.core"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.aries.proxy.api"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.aries.util"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.camel.camel-blueprint"><category name="AllMavenBundles"/></bundle>
