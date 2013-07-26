@@ -9,7 +9,7 @@
   <properties>
     <tychoVersion>0.18.0</tychoVersion>
     <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-    <BUILD_ALIAS>CR2</BUILD_ALIAS>
+    <BUILD_ALIAS>Final</BUILD_ALIAS>
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
     <targetEclipseVersionName>juno</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
