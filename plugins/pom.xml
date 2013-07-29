@@ -11,6 +11,12 @@
   <artifactId>plugins</artifactId>
   <name>locus.plugins</name>
   <packaging>pom</packaging>
+
+  <!-- override the value used by the root pom (to label the update site, etc.). Individual plugins may want to further override this, eg., Mockito or Saxon -->
+  <properties>
+    <BUILD_ALIAS>Final</BUILD_ALIAS>
+  </properties>
+
   <modules>
     <module>org.jboss.tools.locus.jcip.annotations</module>
     <module>org.jboss.tools.locus.easytesting.fest-assert</module>
