@@ -9,5 +9,4 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <artifactId>org.jboss.tools.locus.easytesting.fest-util</artifactId>
   <version>1.1.6-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
-
 </project>
