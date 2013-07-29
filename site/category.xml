@@ -20,7 +20,7 @@
 
   <!-- bundles from Maven repos used by Fuse IDE -->
   <category-def name="AllMavenBundles" label="All JBoss Tools Locus Maven Bundles"/>
-
+  <!-- JBIDE-15301 Cannot include SNAPSHOT jars here
   <bundle id="org.apache.aries.blueprint"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.aries.jmx.core"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.aries.proxy.api"><category name="AllMavenBundles"/></bundle>
@@ -31,6 +31,7 @@
   <bundle id="org.apache.camel.camel-spring"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.felix.configadmin"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.felix.eventadmin"><category name="AllMavenBundles"/></bundle>
+  -->
   <bundle id="org.apache.servicemix.bundles.aopalliance"><category name="AllMavenBundles"/></bundle>
 
   <!-- These bundles are included on the latest SpringIDE / STS update site, so don't need to be included here:

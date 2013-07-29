@@ -5,11 +5,12 @@
 	<parent>
 		<groupId>org.jboss.tools</groupId>
 		<artifactId>locus</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.locus</groupId>
 	<artifactId>target-platforms</artifactId>
 	<name>JBoss Tools Locus Target Platforms</name>
+	<version>1.0.0.Final</version>
 	<packaging>pom</packaging>
 	<build>
 		<pluginManagement>

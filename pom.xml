@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.tools</groupId>
   <artifactId>locus</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
     <tychoVersion>0.18.0</tychoVersion>
@@ -13,6 +13,7 @@
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
     <targetEclipseVersionName>juno</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
+    <TARGET_PLATFORM_VERSION>1.0.0.Final</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
   </properties>
 
@@ -94,7 +95,7 @@
                <artifact>
                   <groupId>org.jboss.tools.locus.target-platforms</groupId>
                   <artifactId>locus-multiple</artifactId>
-                  <version>1.0.1-SNAPSHOT</version>
+                  <version>${TARGET_PLATFORM_VERSION}</version>
                </artifact>
             </target>
             <environments>
