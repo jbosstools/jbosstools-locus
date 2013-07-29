@@ -12,6 +12,7 @@
   <groupId>org.jboss.tools.locus</groupId>
   <artifactId>update.site</artifactId>
   <packaging>eclipse-repository</packaging>
+  <version>1.0.0.Final</version>
 
   <properties>
     <update.site.name>${project.name}</update.site.name>
