@@ -171,28 +171,6 @@
           <encoding>ISO-8859-1</encoding>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.jboss.tools.tycho-plugins</groupId>
-        <artifactId>repository-utils</artifactId>
-        <version>0.16.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <id>generate-facade</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-repository-facade</goal>
-            </goals>
-            <configuration>
-              <symbols>
-                <update.site.name>${update.site.name}</update.site.name>
-                <update.site.description>${update.site.description}</update.site.description>
-                <update.site.version>${project.version} (${buildQualifier})</update.site.version>
-                <target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
-              </symbols>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>

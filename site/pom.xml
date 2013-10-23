@@ -39,39 +39,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.jboss.tools.tycho-plugins</groupId>
-        <artifactId>repository-utils</artifactId>
-        <version>0.16.0.CR1</version>
-        <executions>
-          <execution>
-            <id>generate-facade</id>
-            <phase>package</phase>
-            <goals>
-              <goal>generate-repository-facade</goal>
-            </goals>
-            <configuration>
-              <!-- JBIDE-15340 :: Locus SHOULD NOT INCLUDE associate sites; onus is on the adopter to ensure that
-                    all dependencies are resolved when consuming Locus bundles. That said, many dependencies may 
-                    be found from the latest JBoss Tools Stable Release site, eg., 
-                    http://download.jboss.org/jbosstools/updates/stable/kepler/
-              <associateSites><site>DO NOT INCLUDE</site></associateSites>
-              -->
-              <siteTemplateFolder>siteTemplateFolder</siteTemplateFolder>
-              <symbols>
-                <update.site.name>${update.site.name}</update.site.name>
-                <update.site.description>${update.site.description}</update.site.description>
-                <target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
-              </symbols>
-              <p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${JOB_NAME}/${project.version}/${BUILD_ALIAS}/${buildQualifier}/</p2StatsUrl>
-              <removeDefaultCategory>true</removeDefaultCategory>
-              <!-- <repositories>
-                <repo>http://upstream/update/sites/to/use/to/resolve/deps</repo>
-              </repositories> -->
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <!-- Workaround for publish script not able to deal with ${artifactId}-${version}.zip -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
