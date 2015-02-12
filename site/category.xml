@@ -48,4 +48,6 @@
   <bundle id="org.springframework.osgi.extender"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.springframework.osgi.extensions.annotations"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.springframework.osgi.io"><category name="AllMavenBundles"/></bundle>
+  <bundle id="org.assertj.core"><category name="AllMavenBundles"/></bundle>
+
 </site>
