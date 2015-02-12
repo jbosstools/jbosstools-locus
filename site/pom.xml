@@ -26,6 +26,8 @@
     <slf4j-log4j12-version>1.6.6</slf4j-log4j12-version>
     <springframework-bundle-version>3.1.4.RELEASE</springframework-bundle-version>
     <springframework-osgi-bundle-version>1.2.1</springframework-osgi-bundle-version>
+    <org.assertj-assertj-core-version>2.1.0</org.assertj-assertj-core-version>
+
   </properties>
   <build>
     <plugins>
@@ -143,6 +145,12 @@
       <groupId>org.springframework.osgi</groupId>
       <artifactId>org.springframework.osgi.io</artifactId>
       <version>${springframework-osgi-bundle-version}</version>
+    </dependency>
+    <!-- JBIDE-19220 for better assertions --> 
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${org.assertj-assertj-core-version}</version>
     </dependency>
   </dependencies>
 
