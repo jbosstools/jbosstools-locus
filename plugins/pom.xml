@@ -23,6 +23,7 @@
     <module>org.jboss.tools.locus.easytesting.fest-util</module>
     <module>org.jboss.tools.locus.sf.saxon</module>
     <module>org.jboss.tools.locus.mockito</module>
+		<module>org.jboss.tools.locus.dmr</module>
   </modules>
 </project>
   

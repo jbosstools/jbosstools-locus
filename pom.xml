@@ -7,7 +7,7 @@
   <version>1.2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
-    <tychoVersion>0.19.0</tychoVersion>
+    <tychoVersion>0.23.0-SNAPSHOT</tychoVersion>
     <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
     <BUILD_ALIAS>SNAPSHOT</BUILD_ALIAS>
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
@@ -334,6 +334,16 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
+    </pluginRepository>
+    <!-- configure the EBR plug-in repo -->
+    <pluginRepository>
+      <id>ebr</id>
+      <url>https://repo.eclipse.org/content/repositories/ebr/</url>
+    </pluginRepository>
+    <!-- configure the Tycho plug-in repo -->
+    <pluginRepository>
+      <id>tycho</id>
+      <url>https://repo.eclipse.org/content/repositories/tycho/</url>
     </pluginRepository>
   </pluginRepositories>
 
