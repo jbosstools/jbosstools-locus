@@ -8,6 +8,7 @@
   <bundle id="org.jboss.tools.locus.jcip.annotations"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.mockito"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon"><category name="AllBundles"/></bundle>
+	<bundle id="org.jboss.tools.locus.dmr"><category name="AllBundles"/></bundle>
 
   <category-def name="AllSources" label="All JBoss Tools Locus Source Bundles"/>
   <!-- JBIDE-15046 remove Fest
@@ -17,6 +18,7 @@
   <bundle id="org.jboss.tools.locus.jcip.annotations.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.mockito.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon.source"><category name="AllSources"/></bundle>
+  <bundle id="org.jboss.tools.locus.dmr.source"><category name="AllSources"/></bundle>
 
   <!-- bundles from Maven repos used by Fuse IDE -->
   <category-def name="AllMavenBundles" label="All JBoss Tools Locus Maven Bundles"/>

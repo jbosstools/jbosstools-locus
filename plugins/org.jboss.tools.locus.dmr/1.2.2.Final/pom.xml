@@ -1,0 +1,71 @@
+<project
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	  <groupId>org.jboss.tools.locus.plugins</groupId>
+	  <artifactId>dmr</artifactId>
+	  <version>1.2.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>org.jboss.tools.locus.dmr</artifactId>
+	<version>1.2.2-SNAPSHOT</version>
+	<packaging>eclipse-bundle-recipe</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jboss-dmr</artifactId>
+			<version>1.2.2.Final</version>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<!-- include everything from all dependencies by default -->
+		<recipe.includes>**/*</recipe.includes>
+		<!-- but filter out maven instructions, we'll generate new ones below -->
+		<recipe.excludes>META-INF/maven/**/*.*</recipe.excludes>
+
+		<!-- BND specific instructions which can be overridden by recipe -->
+		<recipe.Bundle-Name>${project.artifactId}</recipe.Bundle-Name>
+		<recipe.Bundle-Description/>
+		<recipe.Bundle-Vendor>JBoss Tools</recipe.Bundle-Vendor>
+		<!-- remove some clutter from the generated manifests -->
+		<recipe.removeheaders>Ignore-Package,Include-Resource,Private-Package,Embed-Dependency,Built-By,Build-Jdk,Bnd-*,Tool</recipe.removeheaders>
+		<!-- read BND settings from 'osgi.bnd' located next to pom.xml -->
+		<recipe.bndfile>osgi.bnd</recipe.bndfile>
+		<!-- pattern/format used for the qualifier -->
+		<recipe.qualifier.format>'v'yyyyMMdd-HHmm</recipe.qualifier.format>
+
+		<!-- project defaults -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- versions used for plug-ins below -->
+		<ebr-version>1.0.0-SNAPSHOT</ebr-version>
+		<!-- versions for plug-ins used by the EBR plug-in -->
+		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
+		<maven-resource-plugin-version>2.7</maven-resource-plugin-version>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- configure bundle build so that properties defined above will be considered -->
+			<plugin>
+				<groupId>org.eclipse.ebr</groupId>
+				<artifactId>ebr-maven-plugin</artifactId>
+				<version>${ebr-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<includes>${recipe.includes}</includes>
+					<excludes>${recipe.excludes}</excludes>
+					<bndInstructions>
+						<Bundle-Name>${recipe.Bundle-Name}</Bundle-Name>
+						<Bundle-Vendor>${recipe.Bundle-Vendor}</Bundle-Vendor>
+						<Bundle-Description>${recipe.Bundle-Description}</Bundle-Description>
+						<_removeheaders>${recipe.removeheaders}</_removeheaders>
+						<_include>-${recipe.bndfile}</_include>
+					</bndInstructions>
+					<tychoPluginVersionFallback>${tychoVersion}</tychoPluginVersionFallback>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
