@@ -9,6 +9,7 @@
   <bundle id="org.jboss.tools.locus.mockito"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon" version="9.2.1.qualifier"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon" version="9.5.1.qualifier"><category name="AllBundles"/></bundle>
+  <bundle id="org.jboss.tools.locus.dmr"><category name="AllBundles"/></bundle>
 
   <category-def name="AllSources" label="All JBoss Tools Locus Source Bundles"/>
   <!-- JBIDE-15046 remove Fest
