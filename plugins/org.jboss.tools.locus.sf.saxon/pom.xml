@@ -13,6 +13,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>9.2.1</module>
+		<module>9.5.1</module>
 	</modules>
 </project>
 	
