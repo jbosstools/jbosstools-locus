@@ -15,6 +15,8 @@
     <update.site.description>&amp;shy;</update.site.description>
     <TARGET_PLATFORM_VERSION>1.0.0.Final</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
+		<previousVersion>1.1.1.Final</previousVersion>
+		<baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
   </properties>
 
   <modules>
@@ -30,7 +32,7 @@
           <artifactId>tycho-packaging-plugin</artifactId>
           <version>${tychoVersion}</version>
           <configuration>
-            <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
+            <format>'v'yyyyMMdd-HHmm</format>
             <timestampProvider>jgit</timestampProvider>
             <jgit.ignore>pom.xml</jgit.ignore>
             <archiveSite>true</archiveSite>
@@ -83,6 +85,40 @@
             </dependency>
           </dependencies>
         </plugin>
+
+				<!-- TODO add it after adoption of reproducible versions 
+				     ie. When baseline and snapshot can have same versions -->
+				<!--
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<baselineRepositories>
+							<repository>
+								<url>${baseline}</url>
+							</repository>
+						</baselineRepositories>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.jboss.tools.tycho-plugins</groupId>
+					<artifactId>repository-utils</artifactId>
+					<version>${jbossTychoPluginsVersion}</version>
+					<execution>
+						<goals>
+							<goal>compare-version-with-baselines</goal>
+						</goals>
+						<phase>verify</phase>
+						<configuration>
+							<baselines>
+								<repo>${baseline}</repo>
+							</baselines>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			-->
 
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
@@ -198,28 +234,10 @@
 
   <profiles>
     <profile>
-      <id>hudson</id>
-      <activation>
-        <property>
-          <name>BUILD_NUMBER</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-packaging-plugin</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
-              <archiveSite>true</archiveSite>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
       <id>pack200</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
       <build>
         <plugins>
           <plugin>
