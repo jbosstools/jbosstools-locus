@@ -10,7 +10,7 @@
 	<groupId>org.jboss.tools.locus</groupId>
 	<artifactId>target-platforms</artifactId>
 	<name>JBoss Tools Locus Target Platforms</name>
-	<version>1.0.0.Final</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<build>
 		<pluginManagement>
