@@ -21,6 +21,11 @@
         <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
         <unit id="org.apache.commons.collections" version="3.2.0.v2013030210310"/>
         <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
+
+      <!-- required by org.springframework.aop -->
+      <unit id="org.aopalliance" version="1.0.0.v201105210816"/>
+      <!-- required by org.eclipse.gemini.management -->
+      <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
     </location>
 
     <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
