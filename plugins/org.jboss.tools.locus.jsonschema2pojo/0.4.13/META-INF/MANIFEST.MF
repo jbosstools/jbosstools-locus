@@ -7,6 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.fasterxml.jackson.core.jackson-databind,
+ javax.validation.validation-api
 Export-Package: org.jsonschema2pojo.DefaultGenerationConfig,
  org.jsonschema2pojo.CompositeAnnotator,
  org.jsonschema2pojo.exception.GenerationException,
