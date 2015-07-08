@@ -1,14 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core
+Bundle-SymbolicName: org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core;singleton:=true
 Bundle-Version: 0.4.13.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: com.fasterxml.jackson.core.jackson-databind,
- javax.validation.validation-api
+Require-Bundle: com.fasterxml.jackson.core.jackson-databind, 
+ javax.validation
 Export-Package: org.jsonschema2pojo.DefaultGenerationConfig,
  org.jsonschema2pojo.CompositeAnnotator,
  org.jsonschema2pojo.exception.GenerationException,
@@ -63,3 +62,5 @@ Export-Package: org.jsonschema2pojo.DefaultGenerationConfig,
  org.jsonschema2pojo.ContentResolver,
  org.jsonschema2pojo.GenerationConfig,
  org.jsonschema2pojo.Jackson2Annotator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-BuddyPolicy: registered
