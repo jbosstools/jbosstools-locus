@@ -10,7 +10,7 @@
     <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
       <!-- don't forget to increment these files when moving up a version:
         build.xml, *.target*, publish.sh, target2p2mirror.xml -->
-      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20130517111416"/>
+      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20130517111416/"/>
       <!-- org.junit [4.11.0,5.0.0) + hamcrest dep
            org.apache.ant [1.8.4,2.0.0) + apache.commons deps
       -->
@@ -29,10 +29,12 @@
     </location>
 
     <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
+      <unit id="com.fasterxml.jackson.core.jackson-annotations" version="2.5.0.v201504151636"/>
+      <unit id="com.fasterxml.jackson.core.jackson-core" version="2.5.0.v201504151636"/>
       <unit id="com.fasterxml.jackson.core.jackson-databind" version="2.5.0.v201504151636"/>
       <unit id="javax.validation" version="1.0.0.GA_v201205091237"/>
       <unit id="org.junit" version="4.12.0.v201504281640"/>
-      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20150519210750"/>
+      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20150519210750/"/>
     </location>
 
     <!-- org.eclipse.osgi -->
