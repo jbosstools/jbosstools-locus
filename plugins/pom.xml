@@ -24,6 +24,7 @@
     <module>org.jboss.tools.locus.sf.saxon</module>
     <module>org.jboss.tools.locus.mockito</module>
     <module>org.jboss.tools.locus.dmr</module>
+    <module>org.jboss.tools.locus.jsonschema2pojo</module>
   </modules>
 </project>
   

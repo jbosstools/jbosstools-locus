@@ -7,16 +7,18 @@
   <version>1.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
-    <tychoVersion>0.19.0</tychoVersion>
+    <tychoVersion>0.22.0</tychoVersion>
     <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
+    <jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
     <BUILD_ALIAS>SNAPSHOT</BUILD_ALIAS>
     <targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
     <targetEclipseVersionName>juno</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
-    <TARGET_PLATFORM_VERSION>1.0.0.Final</TARGET_PLATFORM_VERSION>
+    <TARGET_PLATFORM_VERSION>1.3.0.Final</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
-		<previousVersion>1.1.1.Final</previousVersion>
-		<baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
+    <previousVersion>1.2.0.Final</previousVersion>
+    <baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
+<!--    <targetplatform.url>file://${project.build.directory}/target-platforms/multiple/target/locus-multiple.target.repo/</targetplatform.url> -->
   </properties>
 
   <modules>
@@ -324,6 +326,20 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+
+    <!-- Locus target platform repo.
+    <repository>
+      <id>locus-tp-site</id>
+      <url>${targetplatform.url}</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+-->
   </repositories>
 
   <!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
