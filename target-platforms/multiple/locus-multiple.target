@@ -28,6 +28,15 @@
       <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
     </location>
 
+    <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
+      <unit id="com.fasterxml.jackson.core.jackson-annotations" version="2.5.0.v201504151636"/>
+      <unit id="com.fasterxml.jackson.core.jackson-core" version="2.5.0.v201504151636"/>
+      <unit id="com.fasterxml.jackson.core.jackson-databind" version="2.5.0.v201504151636"/>
+      <unit id="javax.validation" version="1.0.0.GA_v201205091237"/>
+      <unit id="org.junit" version="4.12.0.v201504281640"/>
+      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20150519210750/"/>
+    </location>
+
     <!-- org.eclipse.osgi -->
     <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
       <repository location="http://download.jboss.org/jbosstools/updates/requirements/juno/201302132140-R/"/>
