@@ -1,16 +1,20 @@
 ## Building Target Platforms
 
 To build, you require specific versions of Java and Maven. Also, there is some Maven setup. 
-The [How to Build JBoss Tools with Maven 3](https://community.jboss.org/wiki/HowToBuildJBossToolsWithMaven3)
+The https://community.jboss.org/wiki/HowToBuildJBossToolsWithMaven3[How to Build JBoss Tools]
 document will guide you through that setup.
 
-This command will run the build:
+This command will run the build, but will not fetch the artifacts:
 
     $ mvn clean verify
 
+If you want to run the build and resolve the target platform into link:multiple/target/locus-multiple.target.repo[multiple/target/locus-multiple.target.repo], do this:
+
+    $ mvn clean verify -Pmultiple2repo
+
 If you want to run the build and fetch source bundles at the same time as other bundles are being resolved, do this:
 
-    $ mvn clean verify -Dmirror-target-to-repo.includeSources=true
+    $ mvn clean verify -Pmultiple2repo -Dmirror-target-to-repo.includeSources=true
 
 If you want to run the build and not fail if there's a problem w/ validation, do this:
 
@@ -31,14 +35,15 @@ When moving from one version of the target to another, the steps are:
 
 1. Update the URLs contained in jbosstools-multiple.target and jbdevstudio-multiple.target (by hand). Check in changes (but do not push to master).
 
-2. Regenerate the IU versions, using <a href="https://github.com/jbosstools/jbosstools-maven-plugins/wiki">org.jboss.tools.tycho-plugins:target-platform-utils</a>, and validate results
+2. Regenerate the IU versions, using https://github.com/jbosstools/jbosstools-maven-plugins/wiki[org.jboss.tools.tycho-plugins:target-platform-utils], and validate results
 
-<pre>
+```
     BASEDIR=`pwd`
     # Merge changes in new target file to actual target file
     pushd multiple && mvn -U org.jboss.tools.tycho-plugins:target-platform-utils:0.16.0-SNAPSHOT:fix-versions -DtargetFile=locus-multiple.target && rm -f locus-multiple.target locus-multiple.target_update_hints.txt && mv -f locus-multiple.target_fixedVersion.target locus-multiple.target && popd
     # Resolve the new 'multiple' target platform and verify it is self-contained by building it
     mvn -U install -DtargetRepositoryUrl=file://${BASEDIR}/multiple/target/locus-multiple.target.repo/
-</pre>
+```
 
-<ol><li value="4"> Check in updated target files & push to master.</li></ol>
+[start=4]
+4. Check in updated target files & push to master.
