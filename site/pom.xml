@@ -185,14 +185,48 @@
     <profile>
       <id>deploy-to-jboss.org</id>
       <properties>
+        <jbosstoolsRelengPublishVersion>4.3.0.CR1-SNAPSHOT</jbosstoolsRelengPublishVersion>
+
+        <deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
+        <deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
+        <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
+        <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
+        <deployTargetFolder>mars/snapshots/builds/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
         <!-- Skip publishing to Nexus, since we don't use it and it takes a lot of time -->
         <maven.deploy.skip>true</maven.deploy.skip>
       </properties>
       <build>
         <plugins>
           <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>deploy-releng-scripts</id>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <phase>deploy</phase>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>org.jboss.tools.releng</groupId>
+                      <artifactId>jbosstools-releng-publish</artifactId>
+                      <version>${jbosstoolsRelengPublishVersion}</version>
+                      <type>tar.gz</type>
+                      <outputDirectory>${deployScriptDir}</outputDirectory>
+                    </artifactItem>
+                  </artifactItems>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>exec-maven-plugin</artifactId>
+            <version>1.3.2</version>
+            <configuration>
+              <executable>${deployScript}</executable>
+            </configuration>
             <executions>
               <execution>
                 <id>deploy-snapshot-build</id>
@@ -202,11 +236,30 @@
                 <phase>deploy</phase>
                 <configuration>
                   <arguments>
+                    <arg>-DESTINATION</arg>
+                    <arg>${deployDestination}</arg>
+                    <arg>-s</arg>
+                    <arg>${deploySourceFolder}</arg>
+                    <arg>-t</arg>
+                    <arg>${deployTargetFolder}</arg>
+                  </arguments>
+                </configuration>
+              </execution>
+              <execution>
+                <id>deploy-snapshot-updatesite</id>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+                <phase>deploy</phase>
+                <configuration>
+                  <arguments>
                     <arg>--del</arg>
+                    <arg>-DESTINATION</arg>
+                    <arg>${deployDestination}</arg>
                     <arg>-s</arg>
                     <arg>${project.build.directory}/repository</arg>
                     <arg>-t</arg>
-                    <arg>mars/snapshots/updates/locus/${jbosstools_site_stream}</arg>
+                    <arg>mars/snapshots/updates/locus/master</arg>
                   </arguments>
                 </configuration>
               </execution>
