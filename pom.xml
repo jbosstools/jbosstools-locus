@@ -18,6 +18,7 @@
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
     <previousVersion>1.2.0.Final</previousVersion>
     <baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
+<!--    <targetplatform.url>file://${project.build.directory}/target-platforms/multiple/target/locus-multiple.target.repo/</targetplatform.url> -->
   </properties>
 
   <modules>
@@ -325,6 +326,20 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+
+    <!-- Locus target platform repo.
+    <repository>
+      <id>locus-tp-site</id>
+      <url>${targetplatform.url}</url>
+      <layout>p2</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+-->
   </repositories>
 
   <!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
