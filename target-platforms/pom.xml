@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>org.jboss.tools.locus</groupId>
 	<artifactId>target-platforms</artifactId>
-	<name>JBoss Tools Locus Target Platforms</name>
+	<name>JBoss Tools Locus - Target Platforms</name>
 	<version>1.3.0.Final</version>
 	<packaging>pom</packaging>
 	<build>

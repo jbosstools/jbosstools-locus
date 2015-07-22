@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>org.jboss.tools.locus.target-platforms</groupId>
 	<artifactId>locus-multiple</artifactId>
-	<name>JBoss Tools Locus Target Platform - Multiple</name>
+	<name>JBoss Tools Locus - Target Platform (Multiple)</name>
 	<packaging>pom</packaging>
 
 	<properties>
