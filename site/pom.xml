@@ -10,7 +10,7 @@
   </parent>
   <name>JBoss Tools Locus - Update Site</name>
   <groupId>org.jboss.tools.locus</groupId>
-  <artifactId>update.site</artifactId>
+  <artifactId>site</artifactId>
   <packaging>eclipse-repository</packaging>
 
   <properties>

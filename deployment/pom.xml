@@ -8,11 +8,39 @@
 		<version>1.3.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.locus</groupId>
-	<artifactId>deployment</artifactId>
+	<artifactId>update.site</artifactId>
 	<name>JBoss Tools Locus - Deployment Reactor</name>
 	<packaging>pom</packaging>
 	<modules>
 		<module>../target-platforms</module>
 		<module>../site</module>
 	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>../site/target/site-${project.version}.zip</file>
+									<type>zip</type>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
