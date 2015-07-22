@@ -192,8 +192,7 @@
         <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
         <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
         <deployTargetFolder>mars/snapshots/builds/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
-        <!-- Skip publishing to Nexus, since we don't use it and it takes a lot of time -->
-        <maven.deploy.skip>true</maven.deploy.skip>
+        <maven.deploy.skip>false</maven.deploy.skip>
       </properties>
       <build>
         <plugins>
