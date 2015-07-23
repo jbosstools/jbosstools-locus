@@ -8,7 +8,7 @@
 		<version>1.5.0-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.locus</groupId>
-	<artifactId>update.site</artifactId>
+	<artifactId>jbosstools-locus</artifactId>
 	<name>JBoss Tools Locus - Deployment Reactor</name>
 	<packaging>pom</packaging>
 	<modules>
@@ -34,6 +34,7 @@
 								<artifact>
 									<file>../site/target/site-${project.version}.zip</file>
 									<type>zip</type>
+									<classifier>updatesite</classifier>
 								</artifact>
 							</artifacts>
 						</configuration>
