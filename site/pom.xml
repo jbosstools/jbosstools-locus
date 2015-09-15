@@ -106,6 +106,16 @@
       <artifactId>com.springsource.org.apache.commons.logging</artifactId> 
       <version>${commons-logging-bundle-version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.aries.spifly</groupId>
+      <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.aries</groupId>
+      <artifactId>org.apache.aries.util</artifactId>
+      <version>1.1.1</version>
+    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
