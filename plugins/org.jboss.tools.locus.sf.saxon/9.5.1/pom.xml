@@ -4,7 +4,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <parent>
     <groupId>org.jboss.tools.locus.plugins</groupId>
     <artifactId>sf.saxon</artifactId>
-    <version>1.3.0.Final</version>
+    <version>1.4.0-SNAPSHOT</version>
   </parent>
   <artifactId>org.jboss.tools.locus.sf.saxon</artifactId>
   <version>9.5.1-SNAPSHOT</version>
