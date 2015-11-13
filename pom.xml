@@ -4,19 +4,19 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.tools</groupId>
   <artifactId>locus</artifactId>
-  <version>1.4.0</version>
+  <version>1.5.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
     <tychoVersion>0.23.1</tychoVersion>
     <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
     <jbossTychoPluginsVersion>0.23.1</jbossTychoPluginsVersion>
-    <BUILD_ALIAS>Final</BUILD_ALIAS>
+    <BUILD_ALIAS>SNAPSHOT</BUILD_ALIAS> <!-- move to Final when releasing -->
     <targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
     <targetEclipseVersionName>mars</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
-    <TARGET_PLATFORM_VERSION>1.4.0</TARGET_PLATFORM_VERSION>
+    <TARGET_PLATFORM_VERSION>1.5.0-SNAPSHOT</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
-    <previousVersion>1.3.0.Final</previousVersion>
+    <previousVersion>1.4.0.Final</previousVersion>
     <baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
   </properties>
 
