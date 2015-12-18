@@ -12,6 +12,8 @@
   <bundle id="org.jboss.tools.locus.dmr"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.apache.directory.bouncycastle.stub"><category name="AllBundles"/></bundle>
+  <bundle id="org.jboss.tools.locus.jaxb-impl"><category name="AllBundles"/></bundle>
+  <bundle id="org.jboss.tools.locus.jaxb-xjc"><category name="AllBundles"/></bundle>
 
   <category-def name="AllSources" label="All JBoss Tools Locus Source Bundles"/>
   <!-- JBIDE-15046 remove Fest
@@ -22,6 +24,9 @@
   <bundle id="org.jboss.tools.locus.mockito.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.sf.saxon.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.apache.directory.bouncycastle.stub.source"><category name="AllSources"/></bundle>
+  <bundle id="org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core.source"><category name="AllSources"/></bundle>
+  <bundle id="org.jboss.tools.locus.jaxb-impl.source"><category name="AllSources"/></bundle>
+  <bundle id="org.jboss.tools.locus.jaxb-xjc.source"><category name="AllSources"/></bundle>
 
   <!-- bundles from Maven repos used by Fuse IDE -->
   <category-def name="AllMavenBundles" label="All JBoss Tools Locus Maven Bundles"/>
