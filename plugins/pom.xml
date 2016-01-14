@@ -26,6 +26,7 @@
     <module>org.jboss.tools.locus.dmr</module>
     <module>org.jboss.tools.locus.jsonschema2pojo</module>
     <module>org.jboss.tools.locus.apache.directory.bouncycastle.stub</module>
+    <module>org.jboss.tools.locus.jaxb-core</module>
     <module>org.jboss.tools.locus.jaxb-impl</module>
     <module>org.jboss.tools.locus.jaxb-xjc</module>
   </modules>

@@ -12,6 +12,7 @@
   <bundle id="org.jboss.tools.locus.dmr"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.apache.directory.bouncycastle.stub"><category name="AllBundles"/></bundle>
+  <bundle id="org.jboss.tools.locus.jaxb-core"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.jaxb-impl"><category name="AllBundles"/></bundle>
   <bundle id="org.jboss.tools.locus.jaxb-xjc"><category name="AllBundles"/></bundle>
 
@@ -25,6 +26,7 @@
   <bundle id="org.jboss.tools.locus.sf.saxon.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.apache.directory.bouncycastle.stub.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core.source"><category name="AllSources"/></bundle>
+  <bundle id="org.jboss.tools.locus.jaxb-core.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.jaxb-impl.source"><category name="AllSources"/></bundle>
   <bundle id="org.jboss.tools.locus.jaxb-xjc.source"><category name="AllSources"/></bundle>
 
