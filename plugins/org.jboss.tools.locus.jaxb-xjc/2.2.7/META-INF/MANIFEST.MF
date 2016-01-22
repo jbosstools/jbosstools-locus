@@ -6,6 +6,7 @@ Bundle-Version: 2.2.7.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
+Require-Bundle: org.jboss.tools.locus.jaxb-core
 Export-Package: com.sun.codemodel,
   com.sun.codemodel.fmt,
   com.sun.codemodel.util,
