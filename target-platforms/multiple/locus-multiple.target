@@ -9,35 +9,34 @@
   <locations>
     <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
       <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20151118145958/"/>
-      <unit id="org.apache.commons.collections" version="3.2.2.v201511171945"/>
-      <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
-    </location>
-
-    <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
-      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20130517111416"/>
-      <!-- org.junit [4.11.0,5.0.0) + hamcrest dep
-           org.apache.ant [1.8.4,2.0.0) + apache.commons deps
-      -->
+      <!-- org.junit [4.11.0,5.0.0) + hamcrest dep -->
       <unit id="org.junit" version="4.11.0.v201303080030"/>
         <unit id="org.hamcrest.core" version="1.3.0.v201303031735"/>
-
-      <unit id="org.apache.ant" version="1.8.4.v201303080030"/>
+  
+      <!-- org.apache.ant [1.8.4,2.0.0) + apache.commons deps -->
+      <unit id="org.apache.ant" version="1.8.4.v201404171501"/>
         <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
-        <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
+        <unit id="org.apache.commons.collections" version="3.2.2.v201511171945"/>
 
-      <!-- required by org.springframework.aop -->
-      <unit id="org.aopalliance" version="1.0.0.v201105210816"/>
-      <!-- required by org.eclipse.gemini.management -->
-      <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
-    </location>
-
-    <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
       <unit id="com.fasterxml.jackson.core.jackson-annotations" version="2.5.0.v201504151636"/>
       <unit id="com.fasterxml.jackson.core.jackson-core" version="2.5.0.v201504151636"/>
       <unit id="com.fasterxml.jackson.core.jackson-databind" version="2.5.0.v201504151636"/>
       <unit id="javax.validation" version="1.0.0.GA_v201205091237"/>
       <unit id="org.junit" version="4.12.0.v201504281640"/>
-      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20150519210750/"/>
+
+      <!-- required by org.springframework.aop -->
+      <unit id="org.aopalliance" version="1.0.0.v201105210816"/>
+      <!-- required by org.eclipse.gemini.management -->
+      <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
+
+      <!-- required by jsonschema2pojo -->
+      <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
+    </location>
+
+    <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
+      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20130517111416"/>
+      <!-- must include commons.logging from orbit/R20130517111416 because tp resolution fails w/ bad md5 hash using newer Orbit or Juno site -->
+      <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
     </location>
 
     <!-- org.eclipse.osgi -->
