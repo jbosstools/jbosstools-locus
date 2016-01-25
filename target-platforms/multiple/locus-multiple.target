@@ -8,8 +8,12 @@
   -->
   <locations>
     <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
-      <!-- don't forget to increment these files when moving up a version:
-        build.xml, *.target*, publish.sh, target2p2mirror.xml -->
+      <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20151118145958/"/>
+      <unit id="org.apache.commons.collections" version="3.2.2.v201511171945"/>
+      <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
+    </location>
+
+    <location includeAllPlatforms="false" includeMode="slicer" type="InstallableUnit" includeSource="true">
       <repository location="http://download.jboss.org/jbosstools/updates/requirements/orbit/R20130517111416"/>
       <!-- org.junit [4.11.0,5.0.0) + hamcrest dep
            org.apache.ant [1.8.4,2.0.0) + apache.commons deps
@@ -19,7 +23,6 @@
 
       <unit id="org.apache.ant" version="1.8.4.v201303080030"/>
         <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
-        <unit id="org.apache.commons.collections" version="3.2.0.v2013030210310"/>
         <unit id="org.apache.commons.logging" version="1.1.1.v201101211721"/>
 
       <!-- required by org.springframework.aop -->
