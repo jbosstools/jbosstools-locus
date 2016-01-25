@@ -40,7 +40,7 @@ When moving from one version of the target to another, the steps are:
 ```
     BASEDIR=`pwd`
     # Merge changes in new target file to actual target file
-    pushd multiple && mvn -U org.jboss.tools.tycho-plugins:target-platform-utils:0.16.0-SNAPSHOT:fix-versions -DtargetFile=locus-multiple.target && rm -f locus-multiple.target locus-multiple.target_update_hints.txt && mv -f locus-multiple.target_fixedVersion.target locus-multiple.target && popd
+    pushd multiple && mvn -U org.jboss.tools.tycho-plugins:target-platform-utils:0.23.3-SNAPSHOT:fix-versions -DtargetFile=locus-multiple.target && rm -f locus-multiple.target locus-multiple.target_update_hints.txt && mv -f locus-multiple.target_fixedVersion.target locus-multiple.target && popd
     # Resolve the new 'multiple' target platform and verify it is self-contained by building it
     mvn -U install -DtargetRepositoryUrl=file://${BASEDIR}/multiple/target/locus-multiple.target.repo/
 ```
