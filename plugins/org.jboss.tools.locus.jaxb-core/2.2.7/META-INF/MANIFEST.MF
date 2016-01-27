@@ -27,5 +27,5 @@ Export-Package: com.sun.xml.bind,
   com.sun.istack.localization,
   com.sun.istack.logging,
   com.sun.xml.txw2,
-  com.sun.xml.tx2w.annotation,
-  com.sun.xml.tx2w.output
+  com.sun.xml.txw2.annotation,
+  com.sun.xml.txw2.output
