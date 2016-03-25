@@ -2,37 +2,49 @@
 
 ## Summary
 
-_JBoss Tools Locus_ is an adjunct to [Eclipse Orbit](http://www.eclipse.org/orbit/). This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed by p2 based builds and products. 
+_JBoss Tools Locus_ is an adjunct to http://www.eclipse.org/orbit/[Eclipse Orbit]. This project's purpose is to package non-OSGi POJO jars as OSGi bundles (wrapping them with additional metadata) and to publish them to an update site from which they can be consumed by p2 based builds and products.
 
 This project's contents should never duplicate what's already in Eclipse Orbit; instead, it should provide newer versions of plugins already in Orbit, or plugins which cannot be included in Orbit for some reason (technical, licensing or otherwise).
 
-## Why Locus ? 
+## Why Locus ?
 
 Locus was created because we started seeing a number of jars being repeately added to JBoss Tools or related plugins which Eclipse Orbit for mixed reasons does not contain. Thus we needed something to provide a repository to be used for builds/downloads.
 
 ### How do I use a library from Locus
 
-The JBoss Tools Locus update is [published to Nexus](https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/).
+The JBoss Tools Locus update is https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/[published to Nexus].
 
-You can therefore use Locus bundles in your target platform (eg., [locus.target](https://github.com/Teiid-Designer/teiid-designer/blob/master/target-platform/locus.target) file) like this:
+You can therefore use Locus bundles in your target platform (eg., https://github.com/jbosstools/jbosstools-integration-stack/blob/master/target-platform/src/targets/integration-stack-base-ea.target#L12-L32[target] file) like this:
 
-    <target name="locus" sequenceNumber="4">
-      <locations>
-        <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-          <repository location="https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/1.0.0.CR1/update.site-1.0.0.CR1.zip-unzip/"/>
-          <unit id="org.jboss.tools.locus.jcip.annotations" version="1.0.0.Final-v20130702-1500"/>
-          <unit id="org.jboss.tools.locus.mockito" version="1.9.5.Final_patched_TEIIDDES-1681-v20130702-1500"/>
-          <unit id="org.jboss.tools.locus.sf.saxon" version="9.2.1.5j-Final-v20130702-1500"/>
-        </location>
-      </locations>
-      <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-    </target>
+[source,xml]
+----
+    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+      <unit id="org.apache.servicemix.bundles.aopalliance" version="1.0.0.3"/>
+
+      <unit id="org.jboss.tools.locus.jcip.annotations" version="1.0.0.v20131024-0922"/>
+      <unit id="org.jboss.tools.locus.sf.saxon" version="9.2.1.v20131024-0922"/>
+      <unit id="org.jboss.tools.locus.sf.saxon" version="9.5.1.v20151110-1025"/>
+      <unit id="org.jboss.tools.locus.jsonschema2pojo.jsonschema2pojo-core" version="0.4.13.v20160122-1745"/>
+      <unit id="org.jboss.tools.locus.apache.directory.bouncycastle.stub" version="1.0.0.v20151110-1025"/>
+      <unit id="org.jboss.tools.locus.jaxb-core" version="2.2.7.v20160127-1545"/>
+      <unit id="org.jboss.tools.locus.jaxb-impl" version="2.2.7.v20160113-1915"/>
+      <unit id="org.jboss.tools.locus.jaxb-xjc" version="2.2.7.v20160125-1950"/>
+      <unit id="org.jboss.tools.locus.mockito" version="1.9.5.v20131024-0922"/>
+
+      <unit id="org.springframework.aspects" version="3.1.4.RELEASE"/>
+      <unit id="org.springframework.osgi.core" version="1.2.1"/>
+      <unit id="org.springframework.osgi.extender" version="1.2.1"/>
+      <unit id="org.springframework.osgi.extensions.annotations" version="1.2.1"/>
+      <unit id="org.springframework.osgi.io" version="1.2.1"/>
+      <repository location="https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.6.0-SNAPSHOT/jbosstools-locus-1.6.0-SNAPSHOT-updatesite.zip-unzip/"/>
+    </location>
+----
 
 Where possible use 'Import-Package' instead of 'Require-Bundle' in your consumer's MANIFEST.MF to reduce sensitivity to different bundlings of the same library.
 
-### Why not just use Orbit ? 
+### Why not just use Orbit ?
 
-Eclipse Orbit's [mandate](http://www.eclipse.org/orbit/) states:
+Eclipse Orbit's http://www.eclipse.org/orbit/[mandate] states:
 
 	"The Orbit mandate does not allow the project to be used for
 	building or maintaining third-party libraries that are not
@@ -43,8 +55,8 @@ This mandate means that if no eclipse.org project requests new jars or updates b
 Eclipse.org Orbit or a 3rd party jar are missing there will not be any updates/additions. This have lead to us being
 stuck with older or buggy 3rd party jars than what we would like thus we needed to find another way to handle this.
 
-Thus _JBoss Tools Locus_ exists mainly to support development of [JBoss Tools](http://jboss.org/tools), but
-the Locus site is not tied to any specific release of JBoss Tools. 
+Thus _JBoss Tools Locus_ exists mainly to support development of http://jboss.org/tools[JBoss Tools], but
+the Locus site is not tied to any specific release of JBoss Tools.
 
 The site it self is not meant to be used directly by users, but mainly used to have a common set of dependencies that
 can be used in builds and actual releases.
@@ -54,11 +66,11 @@ can be used in builds and actual releases.
 ### Rules/Guidelines
 
 The following is the current guidelines for libraries included in Locus.
-They are heavily based by [Orbit](http://wiki.eclipse.org/Adding_Bundles_to_Orbit)'s rules, but adjusted to be more lightweight and with smaller chance of overlap.
+They are heavily based by http://wiki.eclipse.org/Adding_Bundles_to_Orbit[Orbit]'s rules, but adjusted to be more lightweight and with smaller chance of overlap.
 
 1. Do not put anything into Locus before having tried hard to get it into Eclipse Orbit.
-    * See [Orbit builds](http://download.eclipse.org/tools/orbit/downloads/) to see existing Orbit content. 
-    * See [Orbit FAQ](http://wiki.eclipse.org/index.php/Orbit_Faq) on how to get something into Orbit.
+    * See http://download.eclipse.org/tools/orbit/downloads/[Orbit builds] to see existing Orbit content.
+    * See http://wiki.eclipse.org/index.php/Orbit_Faq[Orbit FAQ] on how to get something into Orbit.
 1. Do not include jars directly into the repository, use Maven coordinates for the build as much as possible.
     * Want to keep the repository lean and clean for easy building and contributions.
 1. Do not build from source, use the already available public binaries.
@@ -68,14 +80,14 @@ They are heavily based by [Orbit](http://wiki.eclipse.org/Adding_Bundles_to_Orbi
     * A matching source bundle
 1. Set the Bundle-RequiredExecutionEnvironment header to the absolute minimum JRE required by the library
 1. Do always use `org.jboss.tools.locus.<libraryname>` as bundleid
-    * The bundle id is set to Locus to avoid any [potential conflicts](http://wiki.eclipse.org/Bundle_Naming) with Orbit.
+    * The bundle id is set to Locus to avoid any http://wiki.eclipse.org/Bundle_Naming[potential conflicts] with Orbit.
 1. `Bundle-Version` should be the original library version number followed by .qualifier in the fourth segment. In the event that the original number is already four segments, that version number should be used and then followed by "_qualifier"
 1. Do not modify the functionality or behavior of any library.
-    * Mockito is the only exception to this because of [this Mockito bug](https://groups.google.com/forum/?hl=en&fromgroups=#!topic/mockito/eLE186uE0uc), documented [here](https://issues.jboss.org/browse/JBIDE-14315)
+    * Mockito is the only exception to this because of https://groups.google.com/forum/?hl=en&fromgroups=#!topic/mockito/eLE186uE0uc[this Mockito bug], documented https://issues.jboss.org/browse/JBIDE-14315[here].
 
-Bundles will be published into a p2 update site, which will then be pushed to Nexus. 
-Please note that the version of the Update Site (and the Target Platform used to resolve upstream 
-dependencies like ant, junit, and osgi) will not necessarily match each other, or any of the plugins 
+Bundles will be published into a p2 update site, which will then be pushed to Nexus.
+Please note that the version of the Update Site (and the Target Platform used to resolve upstream
+dependencies like ant, junit, and osgi) will not necessarily match each other, or any of the plugins
 in Locus.
 
 
@@ -87,30 +99,38 @@ The Locus update-site is released on JBoss Nexus (only releases are allowed so f
 
 In this example the version to be released is 1.6.0.Final and locus repository is `origin`.
 
-1. First, switch from SNAPHOST to Final:
+* First, switch from SNAPSHOT to Final:
 
-    ### set specific release version
+[source,bash]
+----
+    # set specific release version
     mvn -Dtycho.mode=maven versions:set -DnewVersion=1.6.0.Final
     rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
 
     # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.6.0.Final
     # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.6.0.Final and previousVersion = 1.5.0.Final
+	vim ./target-platforms/multiple/locus-multiple.target ./pom.xml
 
     # commit changes
     git add .
     git commit -m "prepare for JBoss Tools Locus 1.6.0.Final" .
-    # git tag and push to tag and master
+    # git tag and push to origin
     git tag 1.6.0.Final
     git push origin 1.6.0.Final
     git push origin master
+----
 
-2. Next, rebuild in Jenkins to deploy to Nexus staging repo:
+* Next, rebuild in Jenkins to deploy to Nexus staging repo:
 
 	firefox https://jenkins.mw.lab.eng.bos.redhat.com/hudson/job/jbosstools-locus.site_master/build
 
-3. When done, disable the job and ensure the build is kept forever.
+(or run the build locally with)
 
-4. Now you (or better if it is someone else) can login to http://repository.jboss.org/nexus , review, *close* and *release* the staging repository. 
+    mvn deploy
+
+* When done, disable the job and ensure the build is kept forever.
+
+* Now you (or ideally someone else) can login to http://repository.jboss.org/nexus , review, *close* and *release* the staging repository.
 
 Once released, the repository becomes accessible a few minutes later here:
 
@@ -118,20 +138,24 @@ Once released, the repository becomes accessible a few minutes later here:
 
 * Update Site Zip: https://repository.jboss.org/nexus/content/groups/public/org/jboss/tools/locus/jbosstools-locus/1.6.0.Final/jbosstools-locus-1.6.0.Final-updatesite.zip
 
-5. Next, prepare the master branch for the next snapshot release:
+Finally, you can prepare the master branch for the next snapshot release:
 
-    ### set master to new snapshot version
+[source,bash]
+----
+    # set master to new snapshot version
     mvn -Dtycho.mode=maven versions:set -DnewVersion=1.7.0-SNAPSHOT
     rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
 
     # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.7.0-SNAPSHOT
     # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.7.0-SNAPSHOT and previousVersion = 1.6.0.Final
+	vim ./target-platforms/multiple/locus-multiple.target ./pom.xml
 
     # commit changes
     git add .
     git commit -m "prepare for JBoss Tools Locus 1.7.0-SNAPSHOT" .
     git push origin master
+----
 
 ### What does 'Locus' mean ?
 
-Locus has many [meanings](http://www.thefreedictionary.com/locus), one of them is "a set of points whose location satisfies or is determined by one or more specified conditions, the locus of points equidistant from a given point is a circle". Thus it is not an Orbit, but similar.
+Locus has many http://www.thefreedictionary.com/locus[meanings], one of them is "a set of points whose location satisfies or is determined by one or more specified conditions, the locus of points equidistant from a given point is a circle". Thus it is not an Orbit, but similar.
