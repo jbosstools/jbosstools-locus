@@ -85,30 +85,52 @@ Locus builds with a simple `mvn clean verify`. This produces a copy of the lates
 
 The Locus update-site is released on JBoss Nexus (only releases are allowed so far, SNAPSHOTs are not available published). In order to publish a new release of Locus, just follow these steps:
 
-In this example the version to be released is 1.0.0.CR2 and locus repository is `origin`
+In this example the version to be released is 1.6.0.Final and locus repository is `origin`.
 
-    $ cd site
+1. First, switch from SNAPHOST to Final:
+
     ### set specific release version
-    $ mvn -Dtycho.mode=maven versions:set -DnewVersion=1.0.0.CR2
-    $ git add pom.xml
-    $ git commit -m "JBoss Tools Locus 1.0.0.CR2"
-    # git tag and push to tag and master
-    $ git tag 1.0.0.CR2
-    $ git push origin 1.0.0.CR2
-    $ git push origin master
-    ### Clear repository to be sure not picking up old data
-    $ rm -r ~/.m2/repository/org/jboss/tools/locus
-    $ cd ..
-    $ mvn clean install
-    $ cd site
-    $ mvn deploy
-    ### Set master to new snapshot version
-    $ mvn -Dtycho.mode=maven versions:set -DnewVersion=1.0.0.CR3-SNAPSHOT
-    $ git add pom.xml
-    $ git commit -m "Master now 1.0.0.CR3-SNAPSHOT"
-    $ git push origin master
+    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.6.0.Final
+    rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
 
-After those steps, the artifact should be published to Nexus staging repository. So you (or better if it is someone else) can login to http://repository.jboss.org/nexus , and review, close and release the staging repository. Once released, the repository becomes accessible at https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/`version`/update.site-`version`.zip-unzip/
+    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.6.0.Final
+    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.6.0.Final and previousVersion = 1.5.0.Final
+
+    # commit changes
+    git add .
+    git commit -m "prepare for JBoss Tools Locus 1.6.0.Final" .
+    # git tag and push to tag and master
+    git tag 1.6.0.Final
+    git push origin 1.6.0.Final
+    git push origin master
+
+2. Next, rebuild in Jenkins to deploy to Nexus staging repo:
+
+	firefox https://jenkins.mw.lab.eng.bos.redhat.com/hudson/job/jbosstools-locus.site_master/build
+
+3. When done, disable the job and ensure the build is kept forever.
+
+4. Now you (or better if it is someone else) can login to http://repository.jboss.org/nexus , review, *close* and *release* the staging repository. 
+
+Once released, the repository becomes accessible a few minutes later here:
+
+* Update Site: https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.6.0.Final/jbosstools-locus-1.6.0.Final-updatesite.zip-unzip/
+
+* Update Site Zip: https://repository.jboss.org/nexus/content/groups/public/org/jboss/tools/locus/jbosstools-locus/1.6.0.Final/jbosstools-locus-1.6.0.Final-updatesite.zip
+
+5. Next, prepare the master branch for the next snapshot release:
+
+    ### set master to new snapshot version
+    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.7.0-SNAPSHOT
+    rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
+
+    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.7.0-SNAPSHOT
+    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.7.0-SNAPSHOT and previousVersion = 1.6.0.Final
+
+    # commit changes
+    git add .
+    git commit -m "prepare for JBoss Tools Locus 1.7.0-SNAPSHOT" .
+    git push origin master
 
 ### What does 'Locus' mean ?
 
