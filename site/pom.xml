@@ -200,7 +200,7 @@
         <deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
         <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
         <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
-        <deployTargetFolder>mars/snapshots/builds/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
+        <deployTargetFolder>mars/snapshots/builds/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
         <maven.deploy.skip>false</maven.deploy.skip>
       </properties>
       <build>
@@ -279,7 +279,7 @@
   </profiles>
 
   <!--
-    mvn install -Pmaximum -DBUILD_ID=2013-04-10_01-02-03 -DBUILD_NUMBER=314 -DBUILD_ALIAS=Beta1 -Dupdate.site.description="Stable Milestone" -DJOB_NAME=jbosstools-locus.site_master
+    mvn install -Pmaximum -DBUILD_TIMESTAMP=2013-04-10_01-02-03 -DBUILD_NUMBER=314 -DBUILD_ALIAS=Beta1 -Dupdate.site.description="Stable Milestone" -DJOB_NAME=jbosstools-locus.site_master
   -->
 
 </project>
