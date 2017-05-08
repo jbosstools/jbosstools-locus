@@ -202,6 +202,7 @@
         <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
         <deployTargetFolder>mars/snapshots/builds/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
         <maven.deploy.skip>false</maven.deploy.skip>
+        <skipNexusStagingDeployMojo>false</skipNexusStagingDeployMojo>
       </properties>
       <build>
         <plugins>
