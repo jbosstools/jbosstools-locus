@@ -7,12 +7,12 @@
   <version>1.7.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
-    <tychoVersion>0.24.0</tychoVersion>
+    <tychoVersion>1.1.0</tychoVersion>
     <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-    <jbossTychoPluginsVersion>0.23.3-SNAPSHOT</jbossTychoPluginsVersion>
+    <jbossTychoPluginsVersion>1.1.0</jbossTychoPluginsVersion>
     <BUILD_ALIAS>SNAPSHOT</BUILD_ALIAS> <!-- move to Final when releasing -->
-    <targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
-    <targetEclipseVersionName>mars</targetEclipseVersionName>
+    <targetEclipseVersion>4.8 (Photon)</targetEclipseVersion>
+    <targetEclipseVersionName>photon</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
     <TARGET_PLATFORM_VERSION>1.7.0-SNAPSHOT</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
