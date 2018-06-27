@@ -97,26 +97,26 @@ Locus builds with a simple `mvn clean verify`. This produces a copy of the lates
 
 The Locus update-site is released on JBoss Nexus (only releases are allowed so far, SNAPSHOTs are not available published). In order to publish a new release of Locus, just follow these steps:
 
-In this example the version to be released is 1.6.0.Final and locus repository is `origin`.
+In this example the version to be released is 1.7.0 and locus repository is `origin`.
 
 * First, switch from SNAPSHOT to Final:
 
 [source,bash]
 ----
     # set specific release version
-    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.6.0.Final
+    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.7.0
     rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
 
-    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.6.0.Final
-    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.6.0.Final and previousVersion = 1.5.0.Final
+    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.7.0
+    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.7.0 and previousVersion = 1.6.0.Final
 	vim ./target-platforms/multiple/locus-multiple.target ./pom.xml
 
     # commit changes
     git add .
-    git commit -m "prepare for JBoss Tools Locus 1.6.0.Final" .
+    git commit -m "prepare for JBoss Tools Locus 1.7.0" .
     # git tag and push to origin
-    git tag 1.6.0.Final
-    git push origin 1.6.0.Final
+    git tag 1.7.0
+    git push origin 1.7.0
     git push origin master
 ----
 
@@ -134,25 +134,25 @@ In this example the version to be released is 1.6.0.Final and locus repository i
 
 Once released, the repository becomes accessible a few minutes later here:
 
-* Update Site: https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.6.0.Final/jbosstools-locus-1.6.0.Final-updatesite.zip-unzip/
+* Update Site: https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.7.0/jbosstools-locus-1.7.0-updatesite.zip-unzip/
 
-* Update Site Zip: https://repository.jboss.org/nexus/content/groups/public/org/jboss/tools/locus/jbosstools-locus/1.6.0.Final/jbosstools-locus-1.6.0.Final-updatesite.zip
+* Update Site Zip: https://repository.jboss.org/nexus/content/groups/public/org/jboss/tools/locus/jbosstools-locus/1.7.0/jbosstools-locus-1.7.0-updatesite.zip
 
 Finally, you can prepare the master branch for the next snapshot release:
 
 [source,bash]
 ----
     # set master to new snapshot version
-    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.7.0-SNAPSHOT
+    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.7.0
     rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
 
-    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.7.0-SNAPSHOT
-    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.7.0-SNAPSHOT and previousVersion = 1.6.0.Final
+    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.7.0
+    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.7.0 and previousVersion = 1.7.0
 	vim ./target-platforms/multiple/locus-multiple.target ./pom.xml
 
     # commit changes
     git add .
-    git commit -m "prepare for JBoss Tools Locus 1.7.0-SNAPSHOT" .
+    git commit -m "prepare for JBoss Tools Locus 1.7.0" .
     git push origin master
 ----
 
