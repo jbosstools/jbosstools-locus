@@ -122,7 +122,7 @@ In this example the version to be released is 1.7.0 and locus repository is `ori
 
 * Next, rebuild in Jenkins to deploy to Nexus staging repo:
 
-	firefox https://jenkins.mw.lab.eng.bos.redhat.com/hudson/job/jbosstools-locus.site_master/build
+	google-chrome https://dev-platform-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/jbosstools-locus.site/build
 
 (or run the build locally with)
 
@@ -130,29 +130,48 @@ In this example the version to be released is 1.7.0 and locus repository is `ori
 
 * When done, disable the job and ensure the build is kept forever.
 
-* Now you (or ideally someone else) can login to http://repository.jboss.org/nexus , review, *close* and *release* the staging repository.
+* Now you can login to Nexus.
+
+* First, go here to see what's live:
+
+https://repository.jboss.org/nexus/#nexus-search;gav~org.jboss.tools.locus~jbosstools-locus~1.*~~
+
+* Next, go here to review the staged content, CLOSE the repo, and RELEASE it from staging to production:
+
+https://repository.jboss.org/nexus/#stagingRepositories
+
+NOTE: this can be automated.
+
+* https://github.com/jbosstools/jbosstools-build/blob/master/parent/pom.xml#L541-L553
+* https://dev-platform-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/jbosstools-build.parent_master/config.xml (search for "deploy")
 
 Once released, the repository becomes accessible a few minutes later here:
 
-* Update Site: https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.7.0/jbosstools-locus-1.7.0-updatesite.zip-unzip/
+* Update Sites:
 
-* Update Site Zip: https://repository.jboss.org/nexus/content/groups/public/org/jboss/tools/locus/jbosstools-locus/1.7.0/jbosstools-locus-1.7.0-updatesite.zip
+** https://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.7.0/jbosstools-locus-1.7.0-updatesite.zip-unzip/
+** http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/jbosstools-locus/1.7.0-SNAPSHOT/jbosstools-locus-1.7.0-SNAPSHOT-updatesite.zip-unzip/
+
+* Update Site Zips:
+
+** https://repository.jboss.org/nexus/content/groups/public/org/jboss/tools/locus/jbosstools-locus/1.7.0/jbosstools-locus-1.7.0-updatesite.zip
+** https://repository.jboss.org/nexus/content/repositories/snapshots/org/jboss/tools/locus/jbosstools-locus/1.7.0-SNAPSHOT/
 
 Finally, you can prepare the master branch for the next snapshot release:
 
 [source,bash]
 ----
     # set master to new snapshot version
-    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.7.0
+    mvn -Dtycho.mode=maven versions:set -DnewVersion=1.8.0-SNAPSHOT
     rm -f pom.xml.versionsBackup */pom.xml.versionsBackup */*/pom.xml.versionsBackup */*/*/pom.xml.versionsBackup
 
-    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.7.0
-    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.7.0 and previousVersion = 1.7.0
+    # edit ./target-platforms/multiple/locus-multiple.target to set the correct version = 1.8.0-SNAPSHOT
+    # edit ./pom.xml to set the correct version of TARGET_PLATFORM_VERSION = 1.8.0-SNAPSHOT and previousVersion = 1.7.0
 	vim ./target-platforms/multiple/locus-multiple.target ./pom.xml
 
     # commit changes
     git add .
-    git commit -m "prepare for JBoss Tools Locus 1.7.0" .
+    git commit -m "prepare for JBoss Tools Locus 1.8.0-SNAPSHOT" .
     git push origin master
 ----
 
