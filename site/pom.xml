@@ -26,6 +26,7 @@
     <springframework-bundle-version>3.1.4.RELEASE</springframework-bundle-version>
     <springframework-osgi-bundle-version>1.2.1</springframework-osgi-bundle-version>
     <org.assertj-assertj-core-version>2.1.0</org.assertj-assertj-core-version>
+    <felix-log-bundle-version>1.2.0</felix-log-bundle-version>
 
   </properties>
   <build>
@@ -160,6 +161,16 @@
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>${org.assertj-assertj-core-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.log</artifactId>
+      <version>${felix-log-bundle-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.everit.osgi.bundles</groupId>
+      <artifactId>org.everit.osgi.bundles.org.apache.xmlcommons.full</artifactId>
+      <version>1.4.1-20150918</version>
     </dependency>
   </dependencies>
 
