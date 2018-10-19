@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jboss.tools</groupId>
   <artifactId>locus</artifactId>
-  <version>1.7.0</version>
+  <version>1.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <properties>
     <tychoVersion>1.1.0</tychoVersion>
@@ -14,9 +14,9 @@
     <targetEclipseVersion>4.8 (Photon)</targetEclipseVersion>
     <targetEclipseVersionName>photon</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
-    <TARGET_PLATFORM_VERSION>1.7.0</TARGET_PLATFORM_VERSION>
+    <TARGET_PLATFORM_VERSION>1.8.0-SNAPSHOT</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
-    <previousVersion>1.6.0.Final</previousVersion>
+    <previousVersion>1.7.0</previousVersion>
     <baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
     <!-- https://issues.jboss.org/browse/JBIDE-21012 by default, push zip to JBoss Nexus -->
     <maven.deploy.skip>false</maven.deploy.skip>
@@ -45,27 +45,12 @@
               <environment>
                 <os>macosx</os>
                 <ws>cocoa</ws>
-                <arch>x86</arch>
-              </environment>
-              <environment>
-                <os>macosx</os>
-                <ws>cocoa</ws>
                 <arch>x86_64</arch>
               </environment>
               <environment>
                 <os>win32</os>
                 <ws>win32</ws>
-                <arch>x86</arch>
-              </environment>
-              <environment>
-                <os>win32</os>
-                <ws>win32</ws>
                 <arch>x86_64</arch>
-              </environment>
-              <environment>
-                <os>linux</os>
-                <ws>gtk</ws>
-                <arch>x86</arch>
               </environment>
               <environment>
                 <os>linux</os>
