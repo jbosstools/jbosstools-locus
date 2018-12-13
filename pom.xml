@@ -14,7 +14,7 @@
     <targetEclipseVersion>4.8 (Photon)</targetEclipseVersion>
     <targetEclipseVersionName>photon</targetEclipseVersionName>
     <update.site.description>&amp;shy;</update.site.description>
-    <TARGET_PLATFORM_VERSION>1.8.0-SNAPSHOT</TARGET_PLATFORM_VERSION>
+    <TARGET_PLATFORM_VERSION>1.8.0</TARGET_PLATFORM_VERSION>
     <tycho.scmUrl>scm:git:https://github.com/jbosstools/jbosstools-locus.git</tycho.scmUrl>
     <previousVersion>1.7.0</previousVersion>
     <baseline>http://repository.jboss.org/nexus/content/unzip/unzip/org/jboss/tools/locus/update.site/${previousVersion}/update.site-${previousVersion}.zip-unzip/</baseline>
