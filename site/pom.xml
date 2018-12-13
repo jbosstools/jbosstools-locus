@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.jboss.tools</groupId>
     <artifactId>locus</artifactId>
-    <version>1.8.0-SNAPSHOT</version>
+    <version>1.8.0</version>
   </parent>
   <name>JBoss Tools Locus - Update Site</name>
   <groupId>org.jboss.tools.locus</groupId>
