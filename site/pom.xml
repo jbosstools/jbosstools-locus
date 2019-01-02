@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.jboss.tools</groupId>
     <artifactId>locus</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0-SNAPSHOT</version>
   </parent>
   <name>JBoss Tools Locus - Update Site</name>
   <groupId>org.jboss.tools.locus</groupId>
@@ -28,6 +28,7 @@
     <org.assertj-assertj-core-version>2.1.0</org.assertj-assertj-core-version>
     <felix-log-bundle-version>1.2.0</felix-log-bundle-version>
     <everit-xmlscommons-bundle-version>1.4.1-20150918</everit-xmlscommons-bundle-version>
+    <aries-spifly-bundle-version>1.2</aries-spifly-bundle-version>
   </properties>
   <build>
     <plugins>
@@ -110,13 +111,13 @@
     <dependency>
       <groupId>org.apache.aries.spifly</groupId>
       <artifactId>org.apache.aries.spifly.dynamic.bundle</artifactId>
-      <version>1.0.10</version>
+      <version>${aries-spifly-bundle-version}</version>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>org.apache.aries</groupId>
       <artifactId>org.apache.aries.util</artifactId>
       <version>1.1.3</version>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>org.slf4j</groupId>
