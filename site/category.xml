@@ -46,7 +46,6 @@
   -->
   <bundle id="org.apache.servicemix.bundles.aopalliance"><category name="AllMavenBundles"/></bundle>
   <bundle id="org.apache.aries.spifly.dynamic.bundle"><category name="AllMavenBundles"/></bundle>
-  <!--<bundle id="org.apache.aries.util"><category name="AllMavenBundles"/></bundle>-->
 
   <!-- These bundles are included on the latest SpringIDE / STS update site, so don't need to be included here:
         org.springframework.aop, org.springframework.beans, org.springframework.context,
