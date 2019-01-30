@@ -13,5 +13,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>2.2.7</module>
+		<module>2.3.0</module>
 	</modules>
 </project>
